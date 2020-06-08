@@ -15,7 +15,7 @@
 
 <script>
 import Navigace from './components/Navigace.vue';
-import Paticka from './components/Paticka.vue'
+import Paticka from './components/Paticka.vue';
 
 export default {
   name: 'App',

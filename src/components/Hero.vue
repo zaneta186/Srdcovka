@@ -16,7 +16,7 @@
 
             <div class="hero__button">
             <v-hover value open-delay="200">
-                <v-btn rounded x-large color="#00728f" dark ripple>SPUSŤ TEST</v-btn>
+                <v-btn x-large color="#00728f" dark ripple>SPUSŤ TEST</v-btn>
             </v-hover>
             </div>
 
@@ -27,7 +27,7 @@
 
             <div class="hero__needle">
                 <img class="hero__needle--circle" src="./../assets/images/srdcovka-kolo.svg" alt="srdcovka strelka">
-                <img class="hero__needle--needle otocena" src="./../assets/images/srdcovka-strelka-only.svg" alt="srdcovka strelka">
+                <img class="hero__needle--needle" src="./../assets/images/srdcovka-strelka-only.svg" alt="srdcovka strelka">
             </div>
         
 
@@ -44,7 +44,7 @@ export default {
 
     },
 
-    methods: {
+    mounted: {
 
 
     }
@@ -72,7 +72,7 @@ h1{
     font-weight: 200;
     font-size: 2em;
     z-index: 1;
-    color: #291F1E;
+    color: #ef6f6c;
     order: -5;
 }
 
@@ -138,9 +138,9 @@ h1{
         display: grid;
         max-height: 100vh;
         grid-template-columns: 40% 60%;
-        grid-template-rows: 20% 20% 20% 15%;
+        grid-template-rows: 30% 25% 20% 15%;
         column-gap: 2rem;
-        margin-top: 6rem;
+        margin-top: 3rem;
     }
 
     h1 {
@@ -164,12 +164,13 @@ h1{
 
     .hero__button {
         grid-row: 3;
+        justify-self: center;
     }
 
     .hero__readmore {
         grid-row: 4;
-        justify-self: start;
-        align-items: flex-start;
+        /* justify-self: start;
+        align-items: flex-start; */
     }
 
     .hero__needle--needle:hover {

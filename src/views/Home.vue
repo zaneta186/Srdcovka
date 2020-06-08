@@ -2,7 +2,10 @@
   <v-content>
 
       <hero />
-      <tema />
+    
+      <subject />
+
+      <happiness />
     
   </v-content>
 </template>
@@ -11,14 +14,15 @@
 // @ is an alias to /src
 
 import Hero from '@/components/Hero.vue';
-import Tema from '@/components/Tema.vue';
+import Subject from '@/components/Subject.vue';
+import Happiness from '@/components/Happiness.vue';
 
 export default {
   name: 'Home',
   components: {
     hero: Hero,
-    tema: Tema,
-    
+    subject: Subject,
+    happiness: Happiness,
   }
 }
 </script>
