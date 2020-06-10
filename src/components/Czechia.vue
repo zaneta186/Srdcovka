@@ -1,30 +1,30 @@
 <template>
   <v-container>
 
-    <div class="subject">
+     <div class="czechia">
 
-      <div class="subject__heading">
+      <div class="czechia__heading">
 
-        <h2>Najdi si své dobročinné <span class="subject__heading-tema">TÉMA</span></h2>
-        <p>POZNEJ, KAM TĚ SRDCE TÁHNE...</p>
+        <h2>Posuň <span class="czechia__heading-cesko">ČESKO</span> do civilizované společnosti</h2>
+        <p>NA CHVOST NEPATŘÍME...</p>
         
       </div>
 
-      <div class="subject__heading--gradient"></div>
+      <div class="czechia__heading--gradient"></div>
 
-      <div class="subject__text">
+      <div class="czechia__text">
 
-        <p>Přispívat na něco, čemu nevěříš, je blbost. </p>
-        <p>Aby ti pomoc přinášela dobrý pocit, musíš si najít svou oblast, která tě nenechá v klidu, téma, které tě pokaždé nadzvedne ze židle. Když přijde na přetřes, nic jiného tě v tu chvíli nezajímá. Máš na něj jasný názor, dokážeš o něm zapáleně vykládat svým přátelům, a když na to přijde, tak i dědovi s babičkou. Nevnucuješ se, ale v racionální diskuzi dokážeš své „téma“ obhájit a pohotově reagovat na proti-argumenty.</p>
-
-        <p class="subject__text_cta">Že ještě nevíš, které „téma“ je to tvé? Nevadí, proto jsi tady! Bloudění je u konce, poradíme ti správný směr.</p>
+        <p>Ve <a href="https://www.cafonline.org/about-us/publications/2019-publications/caf-world-giving-index-10th-edition">světovém indexu dobročinnosti</a> je Česko nejen jednou z nejméně štědrých zemí, ale také tou, kde ochota darovat peníze nebo pomoci cizímu člověku v nouzi stále klesá.</p>
+        <p>To se máme ve střední Evropě tak špatně, abychom se řadili po bok africkým státům zmítaným válkami? Možná, že občas zapomínáme, že náš cípek světa je epicentrem blahobytu. A možná, že kdybychom se u nás doma více zajímali o druhé, potkávali bychom v ulicích českých měst šťastnější tváře. Jedna z nich může být i tvoje.</p>
 
       </div>
 
-      <div class="subject__arrow"></div>
+      <div class="czechia__arrow"></div>
 
     </div>
-      
+
+
+
   </v-container>
 </template>
 
@@ -36,7 +36,7 @@ export default {
 
 <style>
 
-.subject {
+.czechia {
   margin: 4rem 0 4rem 0;
   line-height: 1.5;
   display: flex;
@@ -46,7 +46,7 @@ export default {
   position: relative;
 }
 
-.subject__heading {
+.czechia__heading {
   color: #291F1E;
   margin-bottom: 3rem;
   width: 250px;
@@ -61,7 +61,7 @@ export default {
   background-color: #f7f7f2;
 }
 
-.subject__heading--gradient {
+.czechia__heading--gradient {
   position: absolute;
   top: -25px;
   width: 300px;
@@ -71,25 +71,25 @@ export default {
   
 }
 
-.subject__heading p, .subject__text_cta {
+.czechia__heading p {
 
   color: #ef6f6c;
 
 }
 
-.subject__heading-tema {
+.czechia__heading-cesko {
   font-weight: 900;
   color: #a3333d;
 }
 
-.subject__text {
+.czechia__text {
   color: #291F1E;
   margin: 0 10% 0 10%;
   font-size: 110%;
   font-weight: 300;
 }
 
-.subject__arrow {
+.czechia__arrow {
     width: 0; 
     height: 0; 
     border-left: 1rem solid transparent;
@@ -99,8 +99,7 @@ export default {
 }
 
 @media (min-width:600px) {
-
-  .subject {
+  .czechia {
         display: grid;
         max-height: 100vh;
         grid-template-columns: 40% 60%;
@@ -110,7 +109,7 @@ export default {
         margin: 20rem 0 20rem 0;
   }
 
-  .subject__heading {
+  .czechia__heading {
     grid-column: 1;
     grid-row: 1/ span 4;
     width: 350px;
@@ -119,7 +118,7 @@ export default {
     font-size: 150%;
   }
 
-  .subject__heading--gradient {
+  .czechia__heading--gradient {
     grid-column: 1;
     grid-row: 1/ span 4;
     width: 400px;
@@ -129,7 +128,7 @@ export default {
     transform: translate(-25px, 0);
   }
 
-  .subject__text {
+  .czechia__text {
     grid-column: 2;
     grid-row: 1 / span 4;
     text-align: left;
@@ -137,11 +136,10 @@ export default {
     font-weight: 300;
   }
 
-  .subject__arrow {
+  .czechia__arrow {
     display: none;
   }
+
 }
-
-
 
 </style>

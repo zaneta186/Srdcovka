@@ -33,7 +33,7 @@ export default {
                 {nazev: 'O projektu', link: '#'},
                 {nazev: 'Organizace v naší databázy', link: '#'},
                 {nazev: 'Tvůj profil', link: '#'},
-                {nazev: 'Spusť test', link: '#'},
+                {nazev: 'Spusť test', link: '/test'},
         ],
     }
   },

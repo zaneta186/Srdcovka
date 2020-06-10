@@ -4,7 +4,7 @@
 
         <div class="hero">
             
-            <h1>Nech se vést <br><span class="heart">SRDCEM</span></h1>
+            <h1 class="hero__title">Nech se vést <br><span class="heart">SRDCEM</span></h1>
 
             <div class="hero__message">
 
@@ -16,7 +16,7 @@
 
             <div class="hero__button">
             <v-hover value open-delay="200">
-                <v-btn x-large color="#00728f" dark ripple>SPUSŤ TEST</v-btn>
+                <v-btn x-large color="#00728f" dark ripple to="/test">SPUSŤ TEST</v-btn>
             </v-hover>
             </div>
 
@@ -65,8 +65,7 @@ export default {
 
 }
 
-h1{
-    margin-top: 4rem;
+.hero__title {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
@@ -74,6 +73,7 @@ h1{
     z-index: 1;
     color: #ef6f6c;
     order: -5;
+    margin: 0;
 }
 
 .heart{
@@ -114,6 +114,7 @@ h1{
     order: -2;
 }
 
+
 .hero__readmore {
     margin-top: 1rem;
     order: -1;
@@ -128,7 +129,7 @@ h1{
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
     border-top: 1.5rem solid #ef6f6c;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 
@@ -140,10 +141,10 @@ h1{
         grid-template-columns: 40% 60%;
         grid-template-rows: 30% 25% 20% 15%;
         column-gap: 2rem;
-        margin-top: 3rem;
+        /* margin-top: 3rem; */
     }
 
-    h1 {
+    .hero__title {
         font-size: 4em;
         text-align: left;
         margin: 0;

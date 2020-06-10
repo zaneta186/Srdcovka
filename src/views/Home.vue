@@ -6,6 +6,10 @@
       <subject />
 
       <happiness />
+
+      <czechia />
+
+      <ngos />
     
   </v-content>
 </template>
@@ -16,6 +20,8 @@
 import Hero from '@/components/Hero.vue';
 import Subject from '@/components/Subject.vue';
 import Happiness from '@/components/Happiness.vue';
+import Czechia from '@/components/Czechia.vue';
+import Ngos from '@/components/Ngos.vue';
 
 export default {
   name: 'Home',
@@ -23,10 +29,13 @@ export default {
     hero: Hero,
     subject: Subject,
     happiness: Happiness,
+    czechia: Czechia,
+    ngos: Ngos,
   }
 }
 </script>
 
 <style>
+
 
 </style>
