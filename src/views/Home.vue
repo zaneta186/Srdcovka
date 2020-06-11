@@ -1,6 +1,8 @@
 <template>
   <v-content>
 
+    <div class="home__content">
+
       <hero />
     
       <subject />
@@ -10,6 +12,8 @@
       <czechia />
 
       <ngos />
+
+    </div>
     
   </v-content>
 </template>
@@ -36,6 +40,11 @@ export default {
 </script>
 
 <style>
+
+/* .home__content {
+  scroll-snap-type: y mandatory !important;
+} */
+
 
 
 </style>

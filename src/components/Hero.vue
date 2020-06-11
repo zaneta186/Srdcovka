@@ -13,6 +13,7 @@
                 <p>Zlepši životy kolem sebe, a tím ten svůj</p>
 
             </div>
+            
 
             <div class="hero__button">
             <v-hover value open-delay="200">
@@ -139,7 +140,7 @@ export default {
         display: grid;
         max-height: 100vh;
         grid-template-columns: 40% 60%;
-        grid-template-rows: 30% 25% 20% 15%;
+        grid-template-rows: 35% 25% 10% 25%;
         column-gap: 2rem;
         /* margin-top: 3rem; */
     }
@@ -165,13 +166,17 @@ export default {
 
     .hero__button {
         grid-row: 3;
-        justify-self: center;
+        justify-self: start;
     }
 
     .hero__readmore {
         grid-row: 4;
-        /* justify-self: start;
-        align-items: flex-start; */
+        justify-self: start;
+       
+    }
+
+    .hero__arrow {
+        display: none;
     }
 
     .hero__needle--needle:hover {

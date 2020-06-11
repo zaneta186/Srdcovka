@@ -15,9 +15,9 @@
       <div class="subject__text">
 
         <p>Přispívat na něco, čemu nevěříš, je blbost. </p>
-        <p>Aby ti pomoc přinášela dobrý pocit, musíš si najít svou oblast, která tě nenechá v klidu, téma, které tě pokaždé nadzvedne ze židle. Když přijde na přetřes, nic jiného tě v tu chvíli nezajímá. Máš na něj jasný názor, dokážeš o něm zapáleně vykládat svým přátelům, a když na to přijde, tak i dědovi s babičkou. Nevnucuješ se, ale v racionální diskuzi dokážeš své „téma“ obhájit a pohotově reagovat na proti-argumenty.</p>
+        <p>Aby ti pomoc přinášela dobrý pocit, musíš si najít svou oblast, která tě nenechá v klidu, téma, které tě pokaždé nadzvedne ze židle. Máš na něj jasný názor, dokážeš o něm zapáleně vykládat svým přátelům, a když na to přijde, tak i dědovi s babičkou. Nevnucuješ se, ale v racionální diskuzi dokážeš své „téma“ obhájit a pohotově reagovat na proti-argumenty.</p>
 
-        <p class="subject__text_cta">Že ještě nevíš, které „téma“ je to tvé? Nevadí, proto jsi tady! Bloudění je u konce, poradíme ti správný směr.</p>
+        <p class="subject__text_cta">Že ještě nevíš, které „téma“ je to tvé? Nevadí, proto jsi tady!</p>
 
       </div>
 
@@ -57,7 +57,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   font-family: 'Poppins', sans-serif;
-  z-index: 1;
+  z-index: 2;
   background-color: #f7f7f2;
 }
 
@@ -127,7 +127,17 @@ export default {
     position: static;
     align-self: center;
     transform: translate(-25px, 0);
+    z-index: 1;
   }
+
+  .subject__heading--gradient::after {
+    content: '';
+    width: 1px;
+    height: 250rem;
+    position: absolute;
+    background-color: #ef6f6c;
+    top: -115%;
+}
 
   .subject__text {
     grid-column: 2;

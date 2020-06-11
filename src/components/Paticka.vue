@@ -1,7 +1,7 @@
 <template>
   
     <div>
-        <v-footer color="#a3333d" padless>
+        <v-footer color="#ef6f6c" padless>
             <v-row
                 justify="center"
                 no-gutters

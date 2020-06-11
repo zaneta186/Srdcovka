@@ -23,17 +23,17 @@
 
             <div class="happiness__advice__item">
                 <div class="happiness__advice__item--digit">1</div>
-                <p class="happiness__advice__item--text" v-bind:class="{show: first, hide: !first}">První dobrá zpráva je, že od určitého příjmu už se pocit štěstí se vzrůstajícím bohatstvím nezvyšuje. Vyděláváš-li tedy tak akorát a nic extra ti nechybí, honba za dalšími penězi už tě šťastnější prostě neudělá. To je celkem úleva, nemyslíš? Existuje totiž spousta jiných pokladů, za kterými má větší smysl se pachtit. Třeba čas. Na rodinu, na koníčky, na sebe… nebo na <em class="happiness__advice__item--em">pomoc ostatním</em>.</p>
+                <p class="happiness__advice__item--text" v-bind:class="{show: first, hide: !first}">První dobrá zpráva je, že od určitého příjmu už se pocit štěstí se vzrůstajícím bohatstvím nezvyšuje. Vyděláváš-li tedy tak akorát, honba za dalšími penězi už tě šťastnější prostě neudělá. To je celkem úleva, nemyslíš? Existuje spousta jiných pokladů, za kterými má větší smysl se pachtit. Třeba čas! Na rodinu, na koníčky, na sebe… nebo na <em class="happiness__advice__item--em">pomoc ostatním</em>.</p>
             </div>
 
             <div class="happiness__advice__item second">
                 <div class="happiness__advice__item--digit">2</div>
-                <p class="happiness__advice__text--item" v-bind:class="{show: second, hide: !second}">Záleží i na tom, za co peníze utratíš. Nové BMW tvou křivku štěstí vystřelí nahoru jen na zlomek okamžiku. Nic totiž nestárne tak rychle jako nová věc. Prostě si na něj zvykneš a zevšední ti. Lepší strategií je investovat do zážitků. Sklenka červeného, skok padákem, <em class="happiness__advice__item--em">dobrovolnictví</em>? Čím pomíjivější investice, tím intenzivnější prožitek. Určitě podvědomě tušíš, že dovolená je krásná právě kvůli tomu, že nevyhnutelně skončí. K zážitkům se navíc můžeš vracet ve svých vzpomínkách a pocit štěstí si tak zpětně navodit, kdykoliv máš chuť.</p>
+                <p class="happiness__advice__text--item" v-bind:class="{show: second, hide: !second}">Záleží také na tom, za co peníze utratíš. Nové auto tvou křivku štěstí vystřelí nahoru jen na zlomek okamžiku. Nic totiž nestárne tak rychle jako nová věc. Lepší strategií je investovat do zážitků. Sklenka červeného, skok padákem, <em class="happiness__advice__item--em">dobrovolnictví</em>? Čím pomíjivější investice, tím intenzivnější prožitek. Dovolená je nakonec krásná právě kvůli tomu, že nevyhnutelně skončí. K zážitkům se navíc můžeš vracet ve svých vzpomínkách a pocit štěstí si tak zpětně navodit.</p>
             </div>
 
             <div class="happiness__advice__item third">
                 <div class="happiness__advice__item--digit">3</div>
-                <p class="happiness__advice__text--item" v-bind:class="{show: third, hide: !third}">A konečně za třetí. Z experimentů jasně vyplývá, že utrácet peníze za někoho jiného tě udělá šťastnějším, než utratit je za sebe. Pravidelná pomoc druhým je zkrátka automat na štěstí, který se ti neomrzí! <em class="happiness__advice__item--em">Pomáhej</em>, buď šťastnější a jestli jsi založením spíš analytik či analytička a potřebuješ důkaz, akademický článek na toto téma najdeš <a href="https://www.researchgate.net/publication/5494996_Spending_Money_on_Others_Promotes_Happiness">zde</a></p>
+                <p class="happiness__advice__text--item" v-bind:class="{show: third, hide: !third}">A konečně za třetí. Z experimentů jasně vyplývá, že utrácet peníze za někoho jiného tě udělá šťastnějším, než utratit je za sebe. Pravidelná pomoc druhým je zkrátka automat na štěstí! <em class="happiness__advice__item--em">Pomáhej</em>, buď šťastnější a jestli jsi založením spíš analytik či analytička, akademický článek na toto téma najdeš <a href="https://www.researchgate.net/publication/5494996_Spending_Money_on_Others_Promotes_Happiness">zde</a></p>
             </div>
             
         </div>

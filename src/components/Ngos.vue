@@ -14,10 +14,9 @@
 
       <div class="ngos__text">
 
-        <p>V případě katastrof dokážeme posílat DMS jen to fičí, koronavirová krize zase ukázala, že pár odhodlaných lidí dokáže za víkend ušít tisíce roušek, které by nesehnala ani vláda. V jednorázové pomoci jsme mistři. Neměli bychom ale zapomínat na její méně nablýskanou sestru – <em class="ngos__text--em">pomoc pravidelnou</em>.</p> 
-        <p>I sociálně štědré země nemají kapacity na to, aby plně pokryly <em class="ngos__text--em">péči o všechny</em>. Jsou to neziskovky, které s péčí o potřebné státu pomáhají. Obhajují práva menšin, pomáhají za našimi hranicemi, v péči o pacienty se vzácnými chorobami a v některých případech, jako u nás v péči o umírající, přebírají státní úkol na sebe.</p>
-        <p>Ať už si můžeš dovolit přispívat měsíčně dvě stovky nebo dva tisíce, trvalý bankovní příkaz je pro neziskový sektor neocenitelný příslib pravidelných prostředků, díky nimž mohou organizace <em class="ngos__text--em">plánovat do budoucna</em> a být v pomoci efektivnější.</p>
-        <p>Žádná organizace si nemůže jít za svou misí, pokud neví, zda bude mít příští měsíc na výplaty. <em class="ngos__text--em">Přispívej proto pravidelně</em>.</p>
+        <p>V jednorázové pomoci jsme mistři! Během koronavirové krize ušilo pár odhodlaných lidí za víkend tisíce roušek, které by nesehnala ani vláda.  Neměli bychom ale zapomínat na její méně nablýskanou sestru – <em class="ngos__text--em">pomoc pravidelnou</em>.</p> 
+        <p>Ani sociálně štědré země nemohou zabezpečit <em class="ngos__text--em">péči o všechny</em>. Proto jim s péčí o potřebné pomáhají neziskovky. Obhajují práva menšin, pomáhají za hranicemi nebo pacientům se vzácnými chorobami. V některých případech, jako u paliativní péče, přebírají státní úkol na sebe.</p>
+        <p>Ať už můžeš přispívat měsíčně stovky nebo tisíce, trvalý bankovní příkaz je pro neziskový sektor neocenitelný příslib pravidelných prostředků, díky nimž mohou <em class="ngos__text--em">plánovat do budoucna</em> a být v pomoci efektivní. Žádná organizace si nemůže jít za svou misí, pokud neví, zda bude mít příští měsíc na výplaty. <em class="ngos__text--em">Přispívej proto pravidelně</em>.</p>
 
       </div>
 
