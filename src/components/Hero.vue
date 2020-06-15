@@ -4,7 +4,7 @@
 
         <div class="hero">
             
-            <h1 class="hero__title">Nech se vést <br><span class="heart">SRDCEM</span></h1>
+            <h1 class="hero__title">Nech se vést <br><span class="heading__span">SRDCEM</span></h1>
 
             <div class="hero__message">
 
@@ -17,13 +17,13 @@
 
             <div class="hero__button">
             <v-hover value open-delay="200">
-                <v-btn x-large color="#00728f" dark ripple to="/test">SPUSŤ TEST</v-btn>
+                <v-btn x-large color="#00728f" dark ripple to="/test">SPUSTIT TEST</v-btn>
             </v-hover>
             </div>
 
             <div class="hero__readmore">
                 <p>Nebo si nejdřív přečti víc</p>
-                <div class="hero__arrow"></div>
+                <div class="arrow"></div>
             </div>
 
             <div class="hero__needle">
@@ -40,15 +40,6 @@
 
 <script>
 export default {
-
-    data(){
-
-    },
-
-    mounted: {
-
-
-    }
 
 
 }
@@ -77,11 +68,6 @@ export default {
     margin: 0;
 }
 
-.heart{
-    font-weight: 900;
-    color: #a3333d;
-}
-
 .hero__needle {
     margin-top: 1rem;
     width: 70%;
@@ -104,10 +90,10 @@ export default {
 
 .hero__message {
     margin-top: 1rem;
-    color: #291F1E;
+    color: #00728f;
     text-align: center;
     line-height: 1;
-    font-weight: 300;
+    font-weight: 100;
     order: -3;
 }
 
@@ -124,15 +110,6 @@ export default {
     align-items: center;
 }
 
-.hero__arrow {
-    width: 0; 
-    height: 0; 
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-top: 1.5rem solid #ef6f6c;
-    margin: 1.5rem 0;
-}
-
 
 @media (min-width:600px) {
 
@@ -142,7 +119,7 @@ export default {
         grid-template-columns: 40% 60%;
         grid-template-rows: 35% 25% 10% 25%;
         column-gap: 2rem;
-        /* margin-top: 3rem; */
+        
     }
 
     .hero__title {
@@ -175,18 +152,10 @@ export default {
        
     }
 
-    .hero__arrow {
-        display: none;
-    }
-
     .hero__needle--needle:hover {
         -webkit-transform: rotate(720deg);
         -webkit-transition: 2s;
     }
-
-
-
-
 
 }
 

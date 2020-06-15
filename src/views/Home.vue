@@ -41,10 +41,11 @@ export default {
 
 <style>
 
+/* Hrozně bych si přála, aby na homepage fungovalo scroll-snap mezi jednotlivými sekcemi, ale bojím se, že mi to kvůli vuetify nejede? Jestli mi rozumíte! */
+
 /* .home__content {
   scroll-snap-type: y mandatory !important;
 } */
-
 
 
 </style>
