@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Test from '../views/Test.vue'
 import Profil from '../views/Profil.vue'
+import Organizace from '../views/Organizace.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ Vue.use(VueRouter)
     path: '/profil',
     name: 'Profil',
     component: Profil
+  },
+  {
+    path: '/organizace',
+    name: 'Organizace',
+    component: Organizace
   }
   
 ]

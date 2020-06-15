@@ -1,9 +1,9 @@
 <template>
-  <div class="test">
+  <v-container>
 
       <h1 class="test__title">Welcome to the test</h1>
 
-  </div>
+  </v-container>
 </template>
 
 <script>
