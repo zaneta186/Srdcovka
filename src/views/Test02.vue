@@ -18,9 +18,11 @@
                 v-bind:class="{logooznacene: answer.check}" 
                 v-on:click="zmenStatus(index)"
                 >
+                  <img v-if="answer.check" src="./../assets/images/logo.png" alt="logo" class="logo logooznacene">
                   <img src="./../assets/images/logo.png" alt="logo" class="logo">
                   <button 
-                  class="button button02">
+                  class="button button02"
+                  v-bind:class="{buttonOznaceny: answer.check}">
                   {{answer.name}}</button>
               </div>
             </div>
@@ -65,8 +67,7 @@ export default {
 
 <style scoped>
   .logooznacene{
-    background-color: aquamarine;
-    opacity: 1
+    opacity: 1;
   }
 
 

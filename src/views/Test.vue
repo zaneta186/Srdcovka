@@ -179,6 +179,10 @@ a {
     text-align: left;
 }
 
+.buttonOznaceny {
+  opacity: 0.3;
+}
+
 
 .logo{
   width: 80px;
