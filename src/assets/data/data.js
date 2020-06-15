@@ -1,0 +1,111 @@
+export default [
+	{   id: 100,
+        question: 'Co vás při pohledu na předpověď výše napadne jako první?',
+        description: 'Kapské město v minulosti málem vyhlásilo „den nula”, kdy se měly všechny kohoutky v zemi uzavřít pro nedostatek vody. Díky striktnímu šetření jeho obyvatel je však tento den prozatím odsouván na neurčito.',
+        answers: [
+            {name: 'Globální oteplování zničilo rovnováhu v přírodním cyklu planety, stále častější přírodní katastrofy potlačíme jedině zastavením vypouštění emisí oxidu uhličitého a přechodem na obnovitelné zdroje energie. Změna energetického systému je naší prioritou číslo jedna.'},
+            {name: 'Rekordní sucho a vyschlá říční koryta v afrických savanách přivádějí tamější faunu do svízelné situace. Ohrožené druhy, již tak v nebezpečí kvůli lidské rozpínavosti a pytláctví, přichází vyčerpané k vyschlým napajedlům. Pomoc živočišným druhům, které jsme svou činnostívyhnaly na pokraj záhuby, je naší prioritou.'},
+            {name: 'Život některých lidí v Africe se omezuje na celodenní cestu vyprahlou pouští ke skomírající studni, jejíž voda často nesplňuje hygienické podmínky. Uhasit žízeň je ale pro dehydratovaného člověka v danou chvíli důležitější než přemýšlení o možných následcích. Dokud nebudou lidé v rozvojových zemích žít v adekvátních podmínkách a jejich základní fyziologické potřeby nebudou naplněny, nemůžeme doufat v jakoukoliv sociální či environmentální změnu na globální úrovni.'},
+            {name: 'Tato čísla mě sice trápí, ale vím, že s nimi z domova jen těžko mohu něco udělat. Daleko urgentnější jsou pro mě problémy, kterým čelí lidé v mém bezprostředním okolí. Dokud nebudeme schopní zajistit úctyhodnou péči umírajícím lidem v hospicech v krajských městech nebo dokud se nepostaráme o navrácení přírodního rázu naší obdělávané krajině, která si nedokáže udržet vodu, nemůžeme myslet na pomoc na jiném kontinentě.'},
+            {name: 'O „dni nula” ví jen promile populace a o taková témata se vůbec nezajímá. Pokud chceme vychovat generaci, pro kterou jepocit individuální odpovědnosti za globální problémy přirozeností, musíme investovat přiměřené prostředky do vzdělávání a osvěty. Jen to je cesta, jakspolečně účinně bojovat a podílet se na změně světa.'},
+        ],
+    },
+
+    {   id: 101,
+        question: '(vyber maximálně pět možností)',
+        description: 'Které problémy tě vsoučasné době nejvíce znepokojují?',
+        answers: [
+            {name: 'POTÍRÁNÍ SVOBOD JEDNOTLIVCE', check: false},
+            {name: 'PLÝTVÁNÍ PŘÍRODNÍMI ZDROJI', check: false},
+            {name: 'NEMOC NĚKOHO BLÍZKÉHO', check: false},
+            {name: 'VÁLEČNÉ KONFLIKTY', check: false},
+            {name: 'PANDEMIE A VIRY', check: false},
+            {name: 'VYMÍRÁNÍ ŽIVOČIŠNÝCH DRUHŮ', check: false},
+            {name: 'DEVASTACE DEŠTNÝCH PRALESŮ', check: false},
+            {name: 'ZÁNIK MÍSTNÍCH TRADIC', check: false},
+            {name: 'KOMERCIONALIZACE UMĚLECKÉ SFÉRY', check: false},
+            {name: 'PŘÍRODNÍ KATASTROFY', check: false},
+            {name: 'NEROVNOST', check: false},
+            {name: 'CHUDOBA', check: false},
+            {name: 'NEGRAMOTNOST', check: false},
+            {name: 'TÝRÁNÍ ZVÍŘAT', check: false},
+            {name: 'NESCHOPNOST OVĚŘIT SI PRAVDIVOST INFORMACÍ', check: false},
+            {name: 'MALÁ OBČANSKÁ ANGAŽOVANOST', check: false},
+            ],
+    },
+
+    {   id: 102,
+        question: 'Vyber citát, který ti je vnitřně nejbližší:',
+        description: '',
+        answers: [
+                {name: '„Lásku, vlídnost a bratrský soucit potřebuje nemocný někdy více než všechny léky.“ — Fjodor Michajlovič Dostojevskij'},
+                {name: '„Umění je lež, jež nám pomáhá pochopit pravdu.“ – Pablo Picasso'},
+                {name: '„Umění medicíny spočívá v obveselování pacienta, zatímco příroda léčí chorobu.“ – Voltaire'},
+                {name: '„Temnota nemůže vyhnat temnotu, to dokáže jensvětlo. Nenávist nemůže vyhnat nenávist, to dokáže jen láska.“ Martin Luther King'},
+                {name: '„Dobrý člověk jepřítelem všech živých věcí.“ – Gandhi'},
+
+            ],
+    },
+
+    {   id: 103,
+        question: 'Jaké vlastnosti nejvíce obdivuješ na ostatních?',
+        description: '',
+        answers: [
+            {name: 'Kreativitu a svobodomyslnost'},
+            {name: 'Empatii a vizionářství'},
+            {name: 'Inteligenci a objektivitu'},
+            {name: 'Oddanost věci a smysl pro spravedlnost'},
+               
+            ],
+    },
+
+    {   id: 104,
+        question: ' Jak si představuješ ideální dovolenou?',
+        description: '',
+        answers: [
+            {name: 'Žádná udržitelná forma dovolené, tak jak si ji představujeme vzápadním světě, neexistuje.'},
+            {name: 'Neumím se jen flákat, dovolenou spojuji sněčím užitečným, třeba dobrovolnictvím.'},
+            {name: 'Mimo hlavní turistické tahy na autentických místech, jím a spím u místních, snažím se naučit jejich jazyk.'},
+            {name: 'Na hudebním mezinárodním festivalu!'},
+               
+            ],
+    },
+
+    {   id: 105,
+        question: 'Jak vnímáš celebrity, které se pasují do role aktivistů jako Leo DiCaprio vpřípadě boje proti globálnímu oteplování?',
+        description: '',
+        answers: [
+            {name: 'Kdobročinným tématům je především nutné upoutat pozornost, což celebrity umí. Nechme je využít jejich slávu kdobrým účelům.'},
+            {name: 'Mám tendenci jim nevěřit. Sproblémy obyčejných lidí nakonec často nemají vlastní zkušenosta znějí pokrytecky.'},
+            {name: 'Udělaly by lépe, kdyby prostředky, které vynakládají na kampaně, přímo věnovaly na něco užitečnějšího. Nemluvě o uhlíkové stopě produkce takové kampaně.'},    
+            ],
+    },
+
+    {   id: 106,
+        question: 'Kterou znásledujících osobností nejvíce obdivuješ?',
+        description: '',
+        answers: [
+            {name: 'Jonas Salk: vynálezce vakcíny na dětskou obrnu, který ji poskytl lidstvu bez patentu'},
+            {name: 'Martin Luther King: aktivista a lídr hnutí za lidskápráva'},
+            {name: 'Matka Tereza: humanitární pracovnice a řeholnice'},
+            {name: 'René Descartes: zakladatel moderního vědeckého bádání'},
+            {name: 'Jane Goodall: bioložkazabývající se výzkumemprimátů'},
+            {name: 'William Shakespeare: nejvýznamnější dramatik všech dob'},
+            {name: 'Mahátma Gándhí: indický vůdce nenásilného hnutí za nezávislost a lidská práva'},
+
+            ],
+    },
+
+    {   id: 107,
+        question: 'Z následujících scénářů vyber pro Tebe ten přijatelnější:',
+        description: '',
+        answers: [
+            {name: 'Válka zbraněmi hromadného ničení vyhladí 90 % lidské populace, zbylým 10 % se však podaří civilizaci znovu vybudovat.'},
+            {name: 'Válka zbraněmi hromadného ničení vyhladí 100 % lidské populace, planeta však i bez nás postupně obnoví svou přirozenou rovnováhu.'},             
+            ],
+    },
+    {   id: 108,
+        question: 'Jak vysokou částku jsi ochoten/-na měsíčně zasílat?',
+        description: 'Nýni jsi absolvoval/-a test preferencí.',
+    },
+]
