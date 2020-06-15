@@ -16,7 +16,8 @@
                 v-bind:key="index"
                 v-for="(answer, index) in data.answers"
                 v-bind:class="{logooznacene: answer.check}" 
-                v-on:click="zmenStatus(index)">
+                v-on:click="zmenStatus(index)"
+                >
                   <img src="./../assets/images/logo.png" alt="logo" class="logo">
                   <button 
                   class="button button02">

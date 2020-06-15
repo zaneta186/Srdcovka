@@ -14,7 +14,8 @@
             <div 
             class="answer"
             v-bind:key="id"
-            v-for="(answer,id) in data.answers">
+            v-for="(answer,id) in data.answers"
+            v-on:click="pridejBod(answer.name)">
               <img src="./../assets/images/logo.png" alt="logo" class="logo">
               <button class="button button08" >{{answer.name}}</button>
             </div>
@@ -30,6 +31,7 @@
 import Cross from '../components/Cross.vue'
 import CircleWithPercent from '../components/CircleWithPercent.vue'
 import Data from './../assets/data/data.js';
+import Result from './../assets/data/result.js'
 
 export default {
 
@@ -41,12 +43,20 @@ export default {
     data(){
         return{
             data: Data[5],
+            result: Result[0],
         }
+    },
+
+    methods:{
+        pridejBod(answer){
+            const indexAns = this.data.answers.findIndex(ans => ans.name === answer )
+            const arrayKategorieAns = this.data.answers[indexAns]['kategorie']
+            for (const kategorieAnswer of arrayKategorieAns){
+                this.result[kategorieAnswer] += 1
+            }
+            console.log(this.result)
+        },
     },
 
 }
 </script>
-
-<style>
-
-</style>

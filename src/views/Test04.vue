@@ -15,8 +15,7 @@
               <div class="answer" 
                 v-bind:key="index"
                 v-for="(answer, index) in data.answers"
-                v-bind:class="{logooznacene: answer.check}" 
-                v-on:click="zmenStatus(index)">
+                v-on:click="pridejBod(answer.name)"                >
                   <img src="./../assets/images/logo.png" alt="logo" class="logo">
                   <button 
                   class="button button02 button04">
@@ -34,8 +33,10 @@
 import Cross from '../components/Cross.vue'
 import CircleWithPercent from '../components/CircleWithPercent.vue'
 import Data from './../assets/data/data.js';
+import Result from './../assets/data/result.js'
 
 export default {
+
     components:{
         cross: Cross,
         circleWithPercent: CircleWithPercent,
@@ -44,8 +45,19 @@ export default {
     data(){
         return{
             data: Data[3],
-            continueToTest03: false,
+            result: Result[0],
         }
+    },
+
+    methods:{
+        pridejBod(answer){
+            const indexAns = this.data.answers.findIndex(ans => ans.name === answer )
+            const arrayKategorieAns = this.data.answers[indexAns]['kategorie']
+            for (const kategorieAnswer of arrayKategorieAns){
+                this.result[kategorieAnswer] += 1
+            }
+            console.log(this.result)
+        },
     },
 
 }
