@@ -9,7 +9,7 @@
             <p>{{data.question}}</p>
           </div>  
 
-        <router-link to="/test08">
+        <router-link to="/testResult">
           <div class="answers">
             <div 
             class="answer"

@@ -71,10 +71,7 @@ export default {
   min-height: 100%;
   background-image: linear-gradient(to bottom,#007391, #202E42);
   color: #f4f4efff;
-  font-family: Montserrat, sans-serif;
   text-align: left;
-
-
 }
 
 .cross{
@@ -122,12 +119,14 @@ p + p{
 
 .question{
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 700;  
+  font-family: Poppins, sans-serif;
+
 }
 
 .answers{
   margin-top: 60px;
- 
+  font-family: Roboto, sans-serif; 
   }
 
 .answer{
@@ -208,6 +207,83 @@ a {
   width: 10%;
 }
 
+.ytvideo{
+  border: none;
+  margin-left: 25%;
+  width: 420px; 
+  height: 345px
+  
+}
+
+.titleCategory,
+.descriptCategory{
+  color: #f4f4efff;
+  font-family: Roboto, sans-serif;
+  margin-bottom: 5px;
+  font-size: 18px;
+
+}
+
+.titleCategory{
+  font-weight: 600;
+}
+
+.registrationDescript{
+    color: #ef6f6cff;
+  font-family: Roboto, sans-serif;
+  margin-bottom: 5px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 80px;
+}
+
+.redButton{
+  background-color: #a3333dff;
+  color: #f4f4efff;
+  padding: 20px;
+  border-radius: 10%;
+  font-family: Roboto, sans-serif;
+  margin-bottom: 5px;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-left: 40%; 
+
+}
+
+.save{
+  margin-left: 50%;
+}
+
+h6{
+    font-size: 50px;
+    text-align: center;
+    margin-left: 100px;
+    color: #f4f4efff;
+    font-family: Roboto, sans-serif;
+    margin-top: 130px;
+
+}
+
+.registrationWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.theme--light.v-application{
+  background: none;
+}
+
+.input-wraper{
+    width: 600px;
+}
+
+.registrationForm{
+  margin: 30px 25% 0 32%
+}
+
+
 
  @media (max-width: 800px){
   .cross{
@@ -259,6 +335,13 @@ a {
   display: flex;
   justify-content: center;
   }
+
+  .ytvideo{
+    width: 220px;
+    height: 145px;
+
+  }
+
 
 }
 

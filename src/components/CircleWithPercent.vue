@@ -4,7 +4,7 @@
       <div class="outCircle">
       <div 
       class="inCircle"
-      >{{Math.round(indexQuestion/data.length*100)}}%</div>
+      >{{Math.round((indexQuestion + 1)/data.length*100)}}%</div>
       </div>
     </div>
 

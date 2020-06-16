@@ -9,6 +9,8 @@ import Test05 from '../views/Test05.vue'
 import Test06 from '../views/Test06.vue'  
 import Test07 from '../views/Test07.vue'  
 import Test08 from '../views/Test08.vue'  
+import TestResult from '../views/TestResult.vue'  
+import Registrace from '../views/Registrace.vue'  
 
 Vue.use(VueRouter)
 
@@ -57,6 +59,16 @@ Vue.use(VueRouter)
     path: '/test08',
     name: 'Test08',
     component: Test08
+  },
+  {
+    path: '/testResult',
+    name: 'TestResult',
+    component: TestResult
+  },
+  {
+    path: '/registrace',
+    name: 'Registrace',
+    component: Registrace
   }
   
 ]

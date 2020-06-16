@@ -105,7 +105,7 @@ export default [
             ],
     },
     {   id: 108,
-        question: 'Jak vysokou částku jsi ochoten/-na měsíčně zasílat?',
-        description: 'Nýni jsi absolvoval/-a test preferencí.',
+        question: 'Tvé srdce bije pro:',
+        description: '',
     },
 ]
