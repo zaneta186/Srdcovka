@@ -3,7 +3,7 @@
 
     <h1 class="organisations__title">Naši neziskoví partneři</h1>
 
-    <div class="organisations">
+    <div class="organisations__desktop">
 
         <div class="organisations__list">
 
@@ -54,18 +54,35 @@
 
     </div>
 
+    <div class="organisations__mobile">
+
+        <v-btn large to="/registrace-organizace" color="#00728f" dark rounded small class="addOrg">
+            <v-icon>mdi-plus</v-icon>
+            Přidej svou organizaci
+        </v-btn>
+
+        <orgcardmobile
+        :chosen="chosen"
+        v-for="(item, i) in organizace"
+        :key="i"
+        :organizace="item" />
+        
+    </div>
+
   </v-container>
 </template>
 
 <script>
 
 import OrgCard from './../components/OrgCard.vue';
-import organizace from './../assets/organizace.js'
+import organizace from './../assets/organizace.js';
+import OrgCardMobile from './../components/OrgCardMobile.vue';
 
 export default {
 
     components: {
         orgcard: OrgCard,
+        orgcardmobile: OrgCardMobile,
     },
 
     methods:{
@@ -111,6 +128,10 @@ export default {
 
 <style>
 
+.organisations__desktop {
+    display: none;
+}
+
 .organisations__title {
         margin: 4rem 0 2rem 0;
         text-align: center;
@@ -123,6 +144,10 @@ export default {
 
 @media screen and (min-width: 600px) {
 
+    .organisations__mobile{
+        display: none;
+    }
+
     .organisations__title {
         margin: 6rem 0 4rem 0;
         text-align: left;
@@ -133,7 +158,7 @@ export default {
     }
 
 
-    .organisations {
+    .organisations__desktop {
         display: flex;
     }
 

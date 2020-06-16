@@ -10,7 +10,7 @@
                             <v-list-item
                             v-for="(item, i) in menuItems"
                             :key="i"
-                            >
+                            :to="item.link">
                             <v-list-item-content>
                                 <v-list-item-title>{{item.nazev}}</v-list-item-title>
                             </v-list-item-content>
@@ -32,11 +32,11 @@
             </ul>
  
             <div class="icons-mobile">
-            <v-btn icon>
+            <v-btn to="/profil" icon>
                 <v-icon>mdi-account</v-icon>
             </v-btn>
 
-            <v-btn icon>
+            <v-btn to="/test" icon>
                 <v-icon>mdi-hand-heart</v-icon>
             </v-btn>
 

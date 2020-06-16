@@ -178,6 +178,7 @@ export default {
         padding: 0 2rem 2rem 2rem;
         width: 80%;
         box-shadow: 4px 3px 34px 12px rgba(217,213,217,0.85);
+        border-radius: 1%;
     }
 }
 
