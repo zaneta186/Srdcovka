@@ -2,6 +2,7 @@
   <div class="wrapper">
       <circle-with-percent v-bind:id="data.id" />
       <router-link to="/"><cross /></router-link>   
+  <v-container>
 
       <div class="test">
           <div class="question">
@@ -25,7 +26,7 @@
           </router-link>
       </div>
 
-  </div>
+  </v-container>
 </template>
 
 <script>

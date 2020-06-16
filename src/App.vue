@@ -31,9 +31,9 @@ export default {
             
             menuItems: [
                 {nazev: 'O projektu', link: '#'},
-                {nazev: 'Organizace v naší databázy', link: '#'},
-                {nazev: 'Tvůj profil', link: '#'},
-                {nazev: 'Spusť test', link: "/test"},
+                {nazev: 'Organizace v naší databázy', link: '/organizace'},
+                {nazev: 'Tvůj profil', link: '/profil'},
+                {nazev: 'Spusť test', link: '/test'},
         ],
     }
   },
