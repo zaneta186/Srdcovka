@@ -29,7 +29,7 @@
 
                         <v-list-item-avatar v-if="avatar">
                             <!-- <v-icon>mdi-hand</v-icon> -->
-                            <img src="./../assets/images/org_logo_01.jpeg">
+                            <v-img :src="require(`./../assets/images/${item.avatar}`)" />
 
                         </v-list-item-avatar>
 
