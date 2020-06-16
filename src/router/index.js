@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Test from '../views/Test.vue'
 import Profil from '../views/Profil.vue'
 import Organizace from '../views/Organizace.vue'
+import RegisterOrg from '../views/RegisterOrg.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ Vue.use(VueRouter)
     path: '/organizace',
     name: 'Organizace',
     component: Organizace
+  },
+  {
+    path: '/registrace-organizace',
+    name: 'Registrace organizace',
+    component: RegisterOrg
   }
   
 ]

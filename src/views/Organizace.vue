@@ -12,7 +12,7 @@
             :avatar="avatar">
 
                 <v-subheader>
-                    <v-btn color="#00728f" dark rounded small class="addOrg">
+                    <v-btn to="/registrace-organizace" color="#00728f" dark rounded small class="addOrg">
                         <v-icon>mdi-plus</v-icon>
                         Přidej svou organizaci
                     </v-btn>
