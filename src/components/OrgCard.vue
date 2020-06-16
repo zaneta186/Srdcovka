@@ -1,13 +1,14 @@
 <template>
   <v-container>
         <v-card
+        v-if="chosen"
         class="mx-auto"
         max-width="600">
 
                     <v-img
                     class="white--text align-end"
                     height="200px"
-                    src="./../assets/images/clovekvtisni.jpg"
+                    :src="require(`./../assets/images/${chosen.picture}`)"
                     >
                     <v-card-title class="detail__title">{{chosen.title}}</v-card-title>
                     </v-img>
