@@ -28,7 +28,7 @@
             <v-spacer></v-spacer>
 
             <ul class="bar__menu--desktop">
-                <li v-for="(item,i) in menuItems" v-bind:key="i"><router-link class="bar__menu--desktop--link" to="`${item.link}`">{{item.nazev}}</router-link></li>
+                <li v-for="(item,i) in menuItems" v-bind:key="i"><router-link class="bar__menu--desktop--link" :to="`${item.link}`">{{item.nazev}}</router-link></li>
             </ul>
  
             <div class="icons-mobile">
