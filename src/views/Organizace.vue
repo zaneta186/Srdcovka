@@ -9,10 +9,17 @@
 
             <v-list
             :two-line="twoLine"
-            :avatar="avatar"
-            >
+            :avatar="avatar">
+
+                <v-subheader>
+                    <v-btn color="#00728f" dark rounded small class="addOrg">
+                        <v-icon>mdi-plus</v-icon>
+                        Přidej svou organizaci
+                    </v-btn>
+                </v-subheader>
 
                 <v-list-item-group v-model="item" color="#ef6f6c">
+
                 
                     <v-list-item
                     v-for="(item, i) in organizace"
@@ -53,6 +60,7 @@
 <script>
 
 import OrgCard from './../components/OrgCard.vue';
+import organizace from './../assets/data.js'
 
 export default {
 
@@ -75,26 +83,13 @@ export default {
     },
 
     data(){
+
         return{
 
             twoLine: true,
             avatar: true,
             indexOrg: 0,
-
-            organizace: [
-
-                {id: 1, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 2, title: 'Lékaři bez hranic', category: 'Humanitární a rozvojová pomoc', description: 'Lékaři bez hranic / Médecins Sans Frontières jsou nezávislá mezinárodní humanitární organizace, která poskytuje rychlou a profesionální zdravotnickou pomoc lidem postiženým válkami, epidemiemi a přírodními katastrofami či lidem vyloučeným ze zdravotní péče. Naši spolupracovníci působí ve více než 70 zemích světa. Poskytují v nich primární a sekundární zdravotní péči, operují raněné, léčí podvyživené děti a pacienty postižené infekčními či opomíjenými nemocemi, provádějí očkovací kampaně, zajišťují mateřskou a porodní péči, přinášejí psychologickou pomoc obětem násilí nebo školí místní personál.', avatar: 'org_logo_02', link: 'https://www.lekari-bez-hranic.cz/', picture: './../assets/images/lekaribezhranic.jpg'},
-                {id: 3, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 4, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 5, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 6, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 7, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 8, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 9, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-                {id: 10, title: 'Člověk v tísni', category: 'Humanitární a rozvojová pomoc', description: 'Člověk v tísni poskytuje okamžitou humanitární pomoc lidem v nouzi při přírodních katastrofách nebo ve válečných krizích. Zároveň se zaměřuje na dlouhodobou pomoc lidem žijícím v chudobě a špatných životních podmínkách. V zemích Afriky, Asie a Evropy realizuje rozvojové programy, které se snaží zlepšit přístup obyvatel ke vzdělání, zdravotní péči, dostupnost pitné vody, dodržování hygieny, rozvoj místních zdrojů obživy i zapojení lidí do procesů ovlivňujících dění v jejich zemi. Za dvacet pět let činnosti realizovala společnost Člověk v tísni humanitární a rozvojovou pomoc ve více než 40 zemích.', avatar: 'org_logo_01', link: 'https://www.clovekvtisni.cz/', picture: './../assets/images/clovekvtisni.jpg'},
-
-            ]
+            organizace: organizace,
         }
     }
 
@@ -103,13 +98,27 @@ export default {
 
 <style>
 
+.organisations__title {
+        margin: 4rem 0 2rem 0;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 200;
+        font-size: 2rem;
+        color: #a3333d;
+    }
+
+
+@media screen and (min-width: 600px) {
+
     .organisations__title {
-        margin: 8rem 0 4rem 0;
+        margin: 6rem 0 4rem 0;
         text-align: left;
         font-family: 'Poppins', sans-serif;
         font-weight: 200;
-        font-size: 2em;
+        font-size: 4rem;
+        color: #a3333d;
     }
+
 
     .organisations {
         display: flex;
@@ -123,5 +132,8 @@ export default {
     .organisations__detail {
         flex-basis: 70%;
     }
+
+}
+    
 
 </style>

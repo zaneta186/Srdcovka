@@ -2,14 +2,14 @@
   <v-container>
         <v-card
         class="mx-auto"
-        max-width="550">
+        max-width="600">
 
                     <v-img
                     class="white--text align-end"
                     height="200px"
                     src="./../assets/images/clovekvtisni.jpg"
                     >
-                    <v-card-title>{{chosen.title}}</v-card-title>
+                    <v-card-title class="detail__title">{{chosen.title}}</v-card-title>
                     </v-img>
 
                     <v-card-subtitle class="pb-0">{{chosen.category}}</v-card-subtitle>
@@ -24,13 +24,15 @@
                         <v-btn
                             color="#00728f"
                             text
+                            :href="chosen.link"
                         >
-                           <a :href="chosen.link">Web</a> 
+                           Web 
                         </v-btn>
 
                         <v-btn
                             color="#a3333d"
                             text
+                            :href="chosen.link"
                         >
                             Darovat
                         </v-btn>
@@ -48,5 +50,14 @@ export default {
 </script>
 
 <style>
+
+.action__link {
+    text-decoration: none;
+    color: #a3333d !important;
+}
+
+.detail__title {
+    font-size: 2em !important;
+}
 
 </style>
