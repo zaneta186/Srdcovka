@@ -22,7 +22,7 @@
 
                 
                     <v-list-item
-                    v-for="(item, i) in organizace"
+                    v-for="(item, i) in organizaceSorted"
                     :key="i"
                     @click="showDetail(i)"
                     >
@@ -60,7 +60,7 @@
 <script>
 
 import OrgCard from './../components/OrgCard.vue';
-import organizace from './../assets/data.js'
+import organizace from './../assets/organizace.js'
 
 export default {
 
@@ -78,6 +78,19 @@ export default {
 
         chosen(){
             return this.organizace[this.indexOrg];
+        },
+
+        organizaceSorted(){
+            return this.organizace.sort((a,b) => {
+                let x = a.title.toLowerCase();
+                let y = b.title.toLowerCase();
+                if (x < y) {
+                    return -1;
+                    }
+                if (x > y) {
+                    return 1;}
+                return 0;
+            });
         }
 
     },
