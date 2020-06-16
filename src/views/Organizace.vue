@@ -28,8 +28,9 @@
                     >
 
                         <v-list-item-avatar v-if="avatar">
-                            <v-icon>mdi-hand</v-icon>
-                        <!-- <v-img :src="require(`./../assets/images/${item.avatar}.jpg`)"></v-img> -->
+                            <!-- <v-icon>mdi-hand</v-icon> -->
+                            <img src="./../assets/images/org_logo_01.jpeg">
+
                         </v-list-item-avatar>
 
                         <v-list-item-content>
@@ -75,7 +76,7 @@
 <script>
 
 import OrgCard from './../components/OrgCard.vue';
-import organizace from './../assets/organizace.js';
+import organizace from './../assets/data/organizace.js';
 import OrgCardMobile from './../components/OrgCardMobile.vue';
 
 export default {
