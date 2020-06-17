@@ -6,7 +6,7 @@
         <div class="result__header--text">
           <h1 class="result__title">Víme, pro co bije Tvoje <span class="heading__span">srdce</span>!</h1>
           <h2 class="result__subtitle">Seznam se se dvěma dobročinnými oblastmi, na kterých Ti skutečně, hluboce záleží. V seznamu pod každou z nich najdeš organizace, které se v Tvém tématu aktivně angažují a které ocení Tvou pomoc.</h2>
-          <v-icon color="#ef6f6c" x-large>mdi-chevron-down</v-icon>
+          <v-icon color="#ef6f6c" x-large>mdi-chevron-triple-down</v-icon>
         </div>
 
         <div class="result__header--circle">
