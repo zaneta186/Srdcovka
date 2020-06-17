@@ -2,53 +2,120 @@
 
     <v-container>
 
+      <h1 class="result__title">Tvé srdce bije pro...</h1>
 
-    <!-- STARÁ VERZE VÝSLEDKU, MUSÍM PŘEPRACOVAT NA OSOBNÍ PROFIL UŽIVATELE -->
+        <div class="result__segments">
 
-    <!-- <div class="result">
+          <resultcard1 class="basis"
+          :segment1="segment1"
+          :organizaceFiltered1="organizaceFiltered1"
+          :avatar="avatar"
+          :show1="show1"
+          />
 
-      <h1 class="result__title">Tvé <span class="heart">SRDCE</span> patří ROZVOJOVÉ POMOCI</h1>
+          <resultcard2 class="basis"
+          :segment2="segment2"
+          :organizaceFiltered2="organizaceFiltered2"
+          :avatar="avatar"
+          :show2="show2"
+          />
 
-        <div class="result__needle">
-                <img class="result__needle--circle" src="./../assets/images/srdcovka-kolo.svg" alt="srdcovka strelka">
-                <img class="result__needle--icon">
-        </div>
 
-      <p class="result__description">Osudy lidí, kteří měli od narození méně štěstí než ty, ti nejsou lhostejné, i když se narodili třeba na druhém konci planety. Věříš tomu, že skutečného pokroku jako lidstvo dosáhneme pouze tehdy, když vyspělý svět nebude růst na úkor ostatních regionů. Jsi přesvědčen(a), že vyzdvihnutí lidí z chudoby a zabezpečení jejich základních potřeb je jedinou cestou k tomu, aby komunity v méně rozvinutých oblastech začaly přemýšlet o sociální či environmentální změně.</p>
-
-      <h2 class="result__ngos__title">Nadšení pro Tvé téma sdílejí tyto transparentní organizace:</h2>
-
-      <ul>
-          <li> <a href="#">Člověk v tísni</a></li>
-          <li> <a href="#">Lékaři bez hranic</a></li>
-          <li> <a href="#">Arcidiecézní charita</a></li>
-          <li> <a href="#">HUMR</a></li>
-          <li> <a href="#">ACET</a></li>
-      </ul>
-
-      <h2 class="result__ngos__title">Za cenu Tvé večeře v restauraci mohou:</h2>
-
-       <ul>
-          <li>Poskytnout umělou výživu kojenci s HIV pozitivní matkou na jeden týden.</li>
-          <li>Naočkovat deset dětí proti dětské obrně.</li>
-          <li>Vybavit jednu třídu školy v Africe tužkami a papírem.</li>
-          <li>Zajistit krmení pro kuřata farmářské rodině na měsíc.</li>
-          <li>Zasadit ovocný strom, který se stane významný zdrojem obživy.</li>
-      </ul>
-
-    </div> -->
+        </div> 
 
     </v-container>
 
 </template>
 
 <script>
+
+import categoryDescript from './../assets/data/categoryDescript.js';
+import organizace from './../assets/data/organizace';
+import ResultCard1 from './../components/ResultCard1.vue';
+import ResultCard2 from './../components/ResultCard2.vue';
+
 export default {
+
+  components: {
+    resultcard1: ResultCard1,
+    resultcard2: ResultCard2,
+  },
+
+  data(){
+    return{
+      segments: categoryDescript,
+      organizace: organizace,
+      avatar: true,
+      show1: true,
+      show2: true,
+    }
+  },
+
+  computed:{
+
+    // SEGMENT 1 A SEGMENT 2 POTŘEBUJI NAPOJIT NA VÝSLEDEK TESTU!!!
+
+    segment1(){
+      return this.segments[1];
+    },
+
+    segment2(){
+      return this.segments[4];
+    },
+
+    // SEGMENT 1 A SEGMENT 2 POTŘEBUJI NAPOJIT NA VÝSLEDEK TESTU!!!
+
+    organizaceFiltered1(){
+      return organizace.filter(object => object.category === this.segment1.name);
+    },
+
+    organizaceFiltered2(){
+      return organizace.filter(object => object.category === this.segment2.name);
+    },
+
+  }
+
 
 }
 </script>
 
 <style>
+
+.result__title {
+        margin: 4rem 0 2rem 0;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 200;
+        font-size: 2rem;
+        color: #a3333d;
+    }
+
+.cta {
+        color: #00728f !important;
+        font-weight: 500;
+}
+
+@media screen and (min-width: 600px) {
+
+    .result__title {
+        margin: 6rem 0 4rem 0;
+        text-align: left;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 200;
+        font-size: 4rem;
+        color: #a3333d;
+    }
+
+    .result__segments {
+      display: flex;
+      margin-bottom: 20rem;
+    }
+
+    .basis {
+      flex-basis: 45%;
+    }
+
+}
 
 
 </style>
