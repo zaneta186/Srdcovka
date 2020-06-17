@@ -1,9 +1,21 @@
 <template>
 
     <v-container>
+      <div class="result__header">
 
-      <h1 class="result__title">Tvé srdce bije pro...</h1>
+        <div class="result__header--text">
+          <h1 class="result__title">Víme, pro co bije Tvoje <span class="heading__span">srdce</span>!</h1>
+          <h2 class="result__subtitle">Seznam se se dvěma dobročinnými oblastmi, na kterých Ti skutečně, hluboce záleží. V seznamu pod každou z nich najdeš organizace, které se v Tvém tématu aktivně angažují a které ocení Tvou pomoc.</h2>
+          <v-icon color="#ef6f6c" x-large>mdi-chevron-down</v-icon>
+        </div>
 
+        <div class="result__header--circle">
+          <img class="result__circle" src="./../assets/images/srdcovka-kolo.svg" alt="srdcovka strelka">
+          
+          <img class="result__needle" src="./../assets/images/srdcovka-strelka-only.svg" alt="srdcovka strelka">
+        </div>
+
+      </div>
         <div class="result__segments">
 
           <resultcard1 class="basis"
@@ -20,8 +32,9 @@
           :show2="show2"
           />
 
-
         </div> 
+
+      
 
     </v-container>
 
@@ -48,6 +61,8 @@ export default {
       avatar: true,
       show1: true,
       show2: true,
+      resultNeedle: true,
+      rotate: false,
     }
   },
 
@@ -73,7 +88,7 @@ export default {
       return organizace.filter(object => object.category === this.segment2.name);
     },
 
-  }
+  },
 
 
 }
@@ -82,13 +97,13 @@ export default {
 <style>
 
 .result__title {
-        margin: 4rem 0 2rem 0;
+        margin: 4rem 0 1rem 0;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 200;
         font-size: 2rem;
         color: #a3333d;
-    }
+}
 
 .cta {
         color: #00728f !important;
@@ -98,12 +113,22 @@ export default {
 @media screen and (min-width: 600px) {
 
     .result__title {
-        margin: 6rem 0 4rem 0;
+        margin: 0 0 1rem 0;
         text-align: left;
         font-family: 'Poppins', sans-serif;
         font-weight: 200;
         font-size: 4rem;
         color: #a3333d;
+        line-height: 1;
+    }
+
+    .result__subtitle {
+      margin: 0 10rem 2rem 0;
+      text-align: left;
+      font-weight: 300;
+      font-size: 1.5rem;
+      color: #00728f;
+      line-height: 1.5;
     }
 
     .result__segments {
@@ -111,8 +136,42 @@ export default {
       margin-bottom: 20rem;
     }
 
+    .result__header {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin: 6rem 0 5rem 0;
+    }
+
+    .result__header--text {
+      flex-basis: 50%;
+    }
+
+    .result__header--circle {
+      flex-basis: 50%;
+      position: relative;
+    }
+
     .basis {
       flex-basis: 45%;
+    }
+
+    .result__circle {
+      width: 100%;
+      height: auto;
+    }
+
+    .result__needle{
+      width: 100%;
+      height: auto;
+      position: absolute;
+      left: 0;
+      
+    }
+
+    .result__needle:hover {
+        -webkit-transform: rotate(315deg);
+        -webkit-transition: 1.5s;
     }
 
 }

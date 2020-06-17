@@ -18,13 +18,13 @@
                 </v-card-title>
 
                 <v-card-text color="#291F1E">
-                  {{segment2.description}}
+                    {{segment2.description}}
                 </v-card-text>
 
                 <v-card-actions>
 
                   <v-spacer></v-spacer>
-                    <v-card-subtitle class="cta">Za Tvou věc se perou tyto organizace</v-card-subtitle>
+                    <v-card-subtitle class="cta">V této oblasti aktivně působí</v-card-subtitle>
                   <v-btn
                     icon
                     @click="show2 = !show2"
