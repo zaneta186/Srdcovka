@@ -28,7 +28,7 @@
                     >
 
                         <v-list-item-avatar v-if="avatar">
-                            
+                            <!-- <v-icon>mdi-hand</v-icon> -->
                             <v-img :src="require(`./../assets/images/${item.avatar}`)" />
 
                         </v-list-item-avatar>

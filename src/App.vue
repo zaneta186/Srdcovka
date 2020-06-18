@@ -32,8 +32,7 @@ export default {
             menuItems: [
                 {nazev: 'O projektu', link: '#'},
                 {nazev: 'Organizace v naší databázy', link: '/organizace'},
-                {nazev: 'Tvůj profil', link: '/profil'},
-                {nazev: 'Spusť test', link: '/test'},
+                {nazev: 'Spustit test', link: '/test'},
         ],
     }
   },
@@ -46,12 +45,6 @@ export default {
 
 .app  {
   background: linear-gradient(#f7f7f2, #f8f8ed)  !important;
-
-    /* ZkOuška, jak by vypadalo pozadí s větší hloubkou/strukturou */
-
-    /* background-image: url("assets/images/wall02.jpg") !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important; */
 }
 
 .main {

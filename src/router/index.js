@@ -2,9 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Test from '../views/Test.vue'
-import Profil from '../views/Profil.vue'
+import Vysledek from '../views/Vysledek.vue'
 import Organizace from '../views/Organizace.vue'
 import RegisterOrg from '../views/RegisterOrg.vue'
+import OrgCard from '../components/OrgCard.vue'
 
 Vue.use(VueRouter)
 
@@ -20,14 +21,19 @@ Vue.use(VueRouter)
     component: Test
   },
   {
-    path: '/profil',
-    name: 'Profil',
-    component: Profil
+    path: '/vysledek',
+    name: 'Vysledek',
+    component: Vysledek
   },
   {
     path: '/organizace',
     name: 'Organizace',
     component: Organizace
+  },
+  {
+    path: '/organizace/:id',
+    name: 'Organizace',
+    component: OrgCard
   },
   {
     path: '/registrace-organizace',

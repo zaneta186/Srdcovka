@@ -6,7 +6,7 @@
         <div class="result__header--text">
           <h1 class="result__title">Víme, pro co bije Tvoje <span class="heading__span">srdce</span>!</h1>
           <h2 class="result__subtitle">Seznam se se dvěma dobročinnými oblastmi, na kterých Ti skutečně, hluboce záleží. V seznamu pod každou z nich najdeš organizace, které se v Tvém tématu aktivně angažují a které ocení Tvou pomoc.</h2>
-          <v-icon color="#ef6f6c" x-large>mdi-chevron-triple-down</v-icon>
+          <v-icon class="result__chevron" color="#ef6f6c" x-large>mdi-chevron-triple-down</v-icon>
         </div>
 
         <div class="result__header--circle">
@@ -71,7 +71,7 @@ export default {
     // SEGMENT 1 A SEGMENT 2 POTŘEBUJI NAPOJIT NA VÝSLEDEK TESTU!!!
 
     segment1(){
-      return this.segments[1];
+      return this.segments[6];
     },
 
     segment2(){
@@ -97,18 +97,45 @@ export default {
 <style>
 
 .result__title {
-        margin: 4rem 0 1rem 0;
+        margin: 5rem 0 4rem 0;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 200;
-        font-size: 2rem;
+        font-size: 3rem;
         color: #a3333d;
+}
+
+.result__subtitle {
+      margin-bottom: 5rem;
+      text-align: center;
+      font-weight: 300;
+      font-size: 1.4rem;
+      color: #00728f;
+      line-height: 1.5;
+    }
+
+.result__chevron {
+  margin-bottom: 4rem;
 }
 
 .cta {
         color: #00728f !important;
         font-weight: 500;
 }
+
+.result__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
+}
+
+.result__header--circle {
+  display: none;  
+}
+
 
 @media screen and (min-width: 600px) {
 
@@ -138,6 +165,7 @@ export default {
 
     .result__header {
       display: flex;
+      flex-direction: row;
       align-items: center;
       position: relative;
       margin: 6rem 0 5rem 0;
@@ -148,6 +176,7 @@ export default {
     }
 
     .result__header--circle {
+      display: block;
       flex-basis: 50%;
       position: relative;
     }
