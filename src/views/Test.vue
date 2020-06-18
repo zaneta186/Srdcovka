@@ -1,30 +1,38 @@
 <template>
   <div class="wrapper">
-    <circle-with-percent v-bind:id="data.id" />
-    <router-link to="/">
-      <cross />
-    </router-link>
 
-    <div class="test">
-      <div class="question">
-        <p>{{data.description}}</p>
-        <p>{{data.question}}</p>
-      </div>
+    <circle-with-percent v-bind:id="data[i].id" />
+    <router-link to="/"><cross /></router-link>
 
-      <router-link to="/test02">
-        <div class="answers">
-          <div
-            class="answer"
-            v-bind:key="id"
-            v-for="(answer,id) in data.answers"
-            v-on:click="pridejBod(answer.name)"
-          >
-            <img src="./../assets/images/logo.png" alt="logo" class="logo" />
-            <button class="button">{{answer.name}}</button>
-          </div>
-        </div>
-      </router-link>
-    </div>
+    <test-text
+    v-if="data[i].type === 'text'"
+    v-bind:answers="data[i].answers"
+    v-bind:url="data[i].media.url"
+    v-bind:question="data[i].question"
+    v-bind:description="data[i].description"
+    v-on:addPoints="addPoints($event)" />
+
+    <test-select
+    v-if="data[i].type === 'select'"
+    v-bind:answers="data[i].answers"
+    v-bind:question="data[i].question"
+    v-bind:description="data[i].description"
+    v-on:addPoints="addPoints($event)" />
+
+    <test-button
+    v-if="data[i].type === 'button'"
+    v-bind:answers="data[i].answers"
+    v-bind:question="data[i].question"
+    v-bind:description="data[i].description"
+    v-on:addPoints="addPoints($event)" />
+
+    <test-slider
+    v-if="data[i].type === 'slider'"
+    v-bind:question="data[i].question"
+    v-on:addPrice="addPrice($event)" />
+
+    
+    
   </div>
 </template>
 
@@ -33,30 +41,44 @@ import Cross from "../components/Cross.vue";
 import CircleWithPercent from "../components/CircleWithPercent.vue";
 import Data from "./../assets/data/data.js";
 import Result from "./../assets/data/result.js";
+import TestText from "../components/TestText.vue"
+import TestSelect from "../components/TestSelect.vue"
+import TestButton from "../components/TestButton.vue"
+import TestSlider from "../components/TestSlider.vue"
+
 
 export default {
   components: {
     cross: Cross,
-    circleWithPercent: CircleWithPercent
+    circleWithPercent: CircleWithPercent,
+    testText: TestText,
+    testSelect: TestSelect,
+    testButton: TestButton,
+    testSlider: TestSlider,
   },
 
   data() {
     return {
-      data: Data[0],
-      result: Result[0]
+      i: 0,
+      data: Data,
+      result: Result[0],
     };
   },
 
   methods: {
-    pridejBod(answer) {
-      const indexAns = this.data.answers.findIndex(ans => ans.name === answer);
-      const arrayKategorieAns = this.data.answers[indexAns]["kategorie"];
-      for (const kategorieAnswer of arrayKategorieAns) {
-        this.result[kategorieAnswer] += 1;
-      }
-      console.log(this.result);
-    }
-  }
+    addPoints(categoryAnswer) {
+      for (const category of categoryAnswer){
+          this.result[category] += 1
+        }
+        this.i+=1
+      console.log(this.result)
+    },
+    
+    addPrice(price) {
+      this.result['prispevek'] = price
+      console.log(this.result)
+    },
+  },
 };
 </script>
 
@@ -125,8 +147,12 @@ p + p {
 
 .answer {
   position: relative;
-  box-shadow: 5px 5px 4px #2a2f35;
-  margin-bottom: 5px;
+  padding: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  border: 1px solid #f4f4efff;
+  border-radius: 25px;
+  margin-bottom: 20px;
 }
 
 a {
@@ -136,16 +162,12 @@ a {
 .button {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #00749100;
   line-height: 1.5;
   color: #f4f4efff;
   font-size: 18px;
-  opacity: 1;
   display: block;
   width: 100%;
   height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
   display: flex;
   justify-content: left;
   text-align: left;
@@ -153,6 +175,7 @@ a {
 
 .button02 {
   text-align: center;
+  justify-content: center;
   height: 100px;
   width: 250px;
   margin: 30px;
@@ -164,17 +187,11 @@ a {
   justify-content: space-evenly;
 }
 
-.button08 {
-  padding: 30px;
-  text-align: left;
-}
-
-.buttonOznaceny {
-  opacity: 0.3;
-}
 
 .logo {
-  width: 80px;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px;
   transition: 0.5s ease;
   opacity: 0;
   position: absolute;
@@ -185,16 +202,31 @@ a {
   text-align: center;
 }
 
-.answer:hover .button {
-  opacity: 0.3;
+.logooznacene{
+  opacity: 0.5;
 }
 
-.answer:hover .logo {
-  opacity: 1;
+.buttonOznaceny {
+  background-color: #f4f4efff;
+  color: #202e42;
+  font-weight: 550;
+  }
+
+.answeroznacene{
+  background-color: #f4f4efff;
+  color: #202e42;
+  font-weight: 550;
 }
 
-.answer:active .logo {
-  width: 10%;
+.answer:hover {
+  background-color: #f4f4efff;
+  color: #202e42;
+  font-weight: 550;
+}
+
+.answer:hover .button{
+  color: #202e42;
+  font-weight: 550;
 }
 
 .ytvideo {
@@ -202,59 +234,6 @@ a {
   margin-left: 25%;
   width: 420px;
   height: 345px;
-}
-
-.titleCategory,
-.descriptCategory {
-  color: #f4f4efff;
-  font-family: Roboto, sans-serif;
-  margin-bottom: 5px;
-  font-size: 18px;
-}
-
-.titleCategory {
-  font-weight: 600;
-}
-
-.registrationDescript {
-  color: #ef6f6cff;
-  font-family: Roboto, sans-serif;
-  margin-bottom: 5px;
-  font-size: 24px;
-  font-weight: 600;
-  margin-top: 80px;
-}
-
-.redButton {
-  background-color: #a3333dff;
-  color: #f4f4efff;
-  padding: 20px;
-  border-radius: 10%;
-  font-family: Roboto, sans-serif;
-  margin-bottom: 5px;
-  font-size: 28px;
-  font-weight: 600;
-  margin-top: 40px;
-  margin-left: 40%;
-}
-
-.save {
-  margin-left: 50%;
-}
-
-h6 {
-  font-size: 50px;
-  text-align: center;
-  margin-left: 100px;
-  color: #f4f4efff;
-  font-family: Roboto, sans-serif;
-  margin-top: 130px;
-}
-
-.registrationWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .theme--light.v-application {
@@ -265,10 +244,25 @@ h6 {
   width: 600px;
 }
 
-.registrationForm {
-  margin: 30px 25% 0 32%;
+.next{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
 }
 
+.slider{
+  margin-top: 100px;
+}
+
+.v-slider__tick-label{
+      color: #f4f4efff;
+      font-size: 18px;
+      font-family: Roboto, sans-serif;
+  }
+
+.v-slider__tick{
+      background-color: rgba(239, 110, 108, 0.555) !important;
+  }
 @media (max-width: 800px) {
   .cross {
     width: 40px;
@@ -323,6 +317,10 @@ h6 {
   .ytvideo {
     width: 220px;
     height: 145px;
+  }
+
+  .v-slider__tick-label{
+  font-size: 14px;
   }
 }
 </style>

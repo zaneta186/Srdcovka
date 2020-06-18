@@ -4,7 +4,7 @@
       <div class="outCircle">
       <div 
       class="inCircle"
-      >{{Math.round((indexQuestion + 1)/data.length*100)}}%</div>
+      >{{Math.round((indexQuestion)/data.length*100)}} %</div>
       </div>
     </div>
 
@@ -25,7 +25,11 @@ export default {
   computed:{
     indexQuestion(){
       const index = this.data.findIndex(dataQuestion => dataQuestion.id === this.id)
-      return index
+      if (this.id == 108){
+          return this.data.length
+      }else{
+        return index
+      }
     },
   },
 
