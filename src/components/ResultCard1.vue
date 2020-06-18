@@ -32,8 +32,8 @@
                     <div>
 
                       <h4>{{item.title}}</h4>
-                      <div class="caption">300 kč - 3 pytle granulí</div>
-                      
+                      <div class="caption">{{item.help1}}</div>
+
                     </div>
 
                     <div>
