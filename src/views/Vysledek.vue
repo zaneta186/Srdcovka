@@ -5,7 +5,7 @@
 
         <div class="result__header--text">
           <h1 class="result__title">Víme, pro co bije Tvoje <span class="heading__span">srdce</span>!</h1>
-          <h2 class="result__subtitle">Seznam se se dvěma dobročinnými oblastmi, na kterých Ti skutečně, hluboce záleží. V seznamu pod každou z nich najdeš organizace, které se v Tvém tématu aktivně angažují a které ocení Tvou pomoc.</h2>
+          <h2 class="result__subtitle">Seznam se se dvěma dobročinnými oblastmi, na kterých Ti skutečně záleží. V seznamu pod každou z nich najdeš organizace, které se v Tvém tématu aktivně angažují, a ilustrační příklady toho, jak by využili Tvou pravidelnou pomoc.</h2>
           <v-icon class="result__chevron" color="#ef6f6c" x-large>mdi-chevron-triple-down</v-icon>
         </div>
 
@@ -166,7 +166,9 @@ export default {
     .result__header {
       display: flex;
       flex-direction: row;
+      justify-content: flex-start;
       align-items: center;
+      text-align: left;
       position: relative;
       margin: 6rem 0 5rem 0;
     }

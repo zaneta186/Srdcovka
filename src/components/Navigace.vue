@@ -32,13 +32,7 @@
             </ul>
  
             <div class="icons-mobile">
-            <v-btn to="/profil" icon>
-                <v-icon>mdi-account</v-icon>
-            </v-btn>
-
-            <v-btn to="/test" icon>
-                <v-icon>mdi-hand-heart</v-icon>
-            </v-btn>
+            
 
             <v-app-bar-nav-icon x-large v-on:click="openDrawer"></v-app-bar-nav-icon>
             </div>

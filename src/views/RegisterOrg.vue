@@ -3,7 +3,7 @@
       <div class="registration__org">
 
         <h1 class="registration__org__title">Aby Vás srdcaři našli</h1>
-        <p class="registration__org__subtitle">Po zaregistrování do naší databáze bude Vaše organizace zařazena do výsledků individuálních testů. Zvýšíte tak pravděpodobnost, že se některý ze srdcařů rozhodne pravidelně přispívat právě na Vaši věc.</p>
+        <p class="registration__org__subtitle">Po zaregistrování do naší databáze bude Vaše organizace zařazena do výsledků individuálních testů. Zvýšíte tak pravděpodobnost, že se některý ze srdcařů rozhodne pravidelně přispívat právě na Vaši věc.<br><br>Vyplněním formuláře se pod svým uživatelským jménem a heslem zaregistrujete do našeho systému, informace o Vaší organizaci tak budete moci kdykoliv aktualizovat.</p>
 
         <v-form
         ref="form"
@@ -11,6 +11,7 @@
         :lazy-validation="lazy">
 
             <v-text-field
+                color="#00728f"
                 v-model="name"
                 :counter="50"
                 :rules="nameRules"
@@ -18,17 +19,13 @@
                 required></v-text-field>
 
             <v-text-field
-                v-model="email"
-                :rules="emailRules"
-                label="Kontaktní e-mail"
-                required></v-text-field>
-
-            <v-text-field
+                color="#00728f"
                 v-model="link"
                 label="Adresa webové stránky organizace"
                 required></v-text-field>
 
             <v-select
+                color="#00728f"
                 v-model="category"
                 :items="items"
                 :rules="[v => !!v || 'Musíte vybrat jednu z možností']"
@@ -36,6 +33,7 @@
                 required></v-select>
 
             <v-textarea
+                color="#00728f"
                 v-model="description"
                 :counter="1000"
                 :auto-grow="autoGrow"
@@ -46,38 +44,62 @@
                 rows="10"></v-textarea>
 
             <v-textarea
+                color="#00728f"
                 v-model="concreteHelp01"
-                :counter="250"
+                :counter="170"
                 :auto-grow="autoGrow"
                 :clearable="clearable"
                 label="Ilustrační příklad: Specifikujte, prosím, jak konkrétně může Vaše organizace využít měsíční příspěvek v hodnotě maximálně 300 Kč:"
                 :outlined="outlined"
-                placeholder="Za 300 Kč zajistíme každý měsíc... / Za pravidelných 300 Kč měsíčně si můžeme za rok dovolit..."
+                placeholder="300 Kč – Zajistíme psí krmivo na týden pro jednoho chráněnce našeho útulku."
                 rows="2"></v-textarea>
 
             <v-textarea
+                color="#00728f"
                 v-model="concreteHelp02"
-                :counter="250"
+                :counter="170"
                 :auto-grow="autoGrow"
                 :clearable="clearable"
                 label="Ilustrační příklad: Specifikujte, prosím, jak konkrétně může Vaše organizace využít měsíční příspěvek v hodnotě maximálně 500 Kč:"
                 :outlined="outlined"
-                placeholder="Za 500 Kč zajistíme každý měsíc... / Za pravidelných 500 Kč měsíčně si můžeme za rok dovolit..."
+                placeholder="500 Kč – Zajistíme umělou výživu na tři dny pro podvyživené dítě."
                 rows="2"></v-textarea>
 
             <v-textarea
+                color="#00728f"
                 v-model="concreteHelp03"
-                :counter="250"
+                :counter="170"
                 :auto-grow="autoGrow"
                 :clearable="clearable"
                 label="Ilustrační příklad: Specifikujte, prosím, jak konkrétně může Vaše organizace využít měsíční příspěvek v hodnotě maximálně 1000 Kč:"
                 :outlined="outlined"
-                placeholder="Za částku 1000 Kč zajistíme každý měsíc... / Za pravidelných 1000 Kč měsíčně si můžeme za rok dovolit..."
+                placeholder="1000 Kč – Nakoupíme tři polohovací polštáře pro pacienty našeho stacionáře."
                 rows="2"></v-textarea>
 
-            <v-file-input accept="image/*,.pdf" label="Nahrajte své logo"></v-file-input>
+            <v-file-input color="#00728f" accept="image/*,.pdf" label="Nahrajte své logo"></v-file-input>
+
+            <v-text-field
+                color="#00728f"
+                v-model="email"
+                :rules="emailRules"
+                label="Kontaktní e-mail (uživatelské jméno)"
+                required></v-text-field>
+
+            <v-text-field
+                color="#00728f"
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                :passwordRules="[passwordRules.required, passwordRules.min]"
+                :type="showPassword ? 'text' : 'password'"
+                name="input-10-2"
+                label="Zadejte nové heslo"
+                hint="Heslo musí mít alespoň 8 znaků"
+                value=""
+                class="input-group--focused"
+                @click:append="show2 = !show2"
+          ></v-text-field>
 
             <v-checkbox
+                color="#00728f"
                 v-model="consent"
                 :rules="[v => !!v || 'Abyste mohli pokračovat, udělate prosím souhlas.']"
                 label="Souhlasím se sdílením výše uvedených údajů"
@@ -116,16 +138,22 @@ export default {
             valid: true,
             name: '',
             nameRules: [
-                v => !!v || 'Name is required',
-                v => (v && v.length <= 10) || 'Name must be less than 50 characters',
+                v => !!v || 'Vyplňte jméno',
+                v => (v && v.length <= 10) || 'Jméno nesmí přesáhnout délku 50 znaků',
             ],
             email: '',
             emailRules: [
-                v => !!v || 'E-mail is required',
-                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                v => !!v || 'Zadejte e-mail',
+                v => /.+@.+\..+/.test(v) || 'Zadejte platný e-mail',
             ],
             category: null,
-            items: ['Humanitární a rozvojová pomoc', 'Ochrana a práva zvířat', 'Sociální oblast a zdraví', 'Obhajoba práv lidí', 'Ekologie a ochrana přírody', 'Vzdělávání a osvěta', 'Kultura']
+            items: ['Humanitární a rozvojová pomoc', 'Ochrana a práva zvířat', 'Sociální oblast a zdraví', 'Obhajoba práv lidí', 'Ekologie a ochrana přírody', 'Vzdělávání a osvěta', 'Kultura'],
+            showPassword: false,
+            passwordRules: {
+                required: value => !!value || 'Required.',
+                min: v => v.length >= 8 || 'Min 8 characters',
+                emailMatch: () => ('The email and password you entered don\'t match'),
+            },
         }
     },
 

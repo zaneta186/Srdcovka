@@ -12,7 +12,7 @@
         <v-spacer></v-spacer>
         <v-card-subtitle class="cta">Za Tvou věc se perou tyto organizace</v-card-subtitle>
         <v-btn icon @click="show1 = !show1">
-          <v-icon>{{ show1 ? 'mdi-chevron-down' : 'mdi-chevron-up' }}</v-icon>
+          <v-icon>{{ show1 ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </v-btn>
       </v-card-actions>
 
