@@ -1,38 +1,40 @@
 <template>
   <div class="wrapper">
-
     <circle-with-percent v-bind:id="data[i].id" />
-    <router-link to="/"><cross /></router-link>
+    <router-link to="/">
+      <cross />
+    </router-link>
 
     <test-text
-    v-if="data[i].type === 'text'"
-    v-bind:answers="data[i].answers"
-    v-bind:url="data[i].media.url"
-    v-bind:question="data[i].question"
-    v-bind:description="data[i].description"
-    v-on:addPoints="addPoints($event)" />
+      v-if="data[i].type === 'text'"
+      v-bind:answers="data[i].answers"
+      v-bind:url="data[i].media.url"
+      v-bind:question="data[i].question"
+      v-bind:description="data[i].description"
+      v-on:addPoints="addPoints($event)"
+    />
 
     <test-select
-    v-if="data[i].type === 'select'"
-    v-bind:answers="data[i].answers"
-    v-bind:question="data[i].question"
-    v-bind:description="data[i].description"
-    v-on:addPoints="addPoints($event)" />
+      v-if="data[i].type === 'select'"
+      v-bind:answers="data[i].answers"
+      v-bind:question="data[i].question"
+      v-bind:description="data[i].description"
+      v-on:addPoints="addPoints($event)"
+    />
 
     <test-button
-    v-if="data[i].type === 'button'"
-    v-bind:answers="data[i].answers"
-    v-bind:question="data[i].question"
-    v-bind:description="data[i].description"
-    v-on:addPoints="addPoints($event)" />
+      v-if="data[i].type === 'button'"
+      v-bind:answers="data[i].answers"
+      v-bind:question="data[i].question"
+      v-bind:description="data[i].description"
+      v-on:addPoints="addPoints($event)"
+    />
 
     <test-slider
-    v-if="data[i].type === 'slider'"
-    v-bind:question="data[i].question"
-    v-on:addPrice="addPrice($event)" />
-
-    
-    
+      v-if="data[i].type === 'slider'"
+      v-bind:question="data[i].question"
+      v-on:addPrice="addPrice($event)"
+    />
   </div>
 </template>
 
@@ -41,11 +43,10 @@ import Cross from "../components/Cross.vue";
 import CircleWithPercent from "../components/CircleWithPercent.vue";
 import Data from "./../assets/data/data.js";
 import Result from "./../assets/data/result.js";
-import TestText from "../components/TestText.vue"
-import TestSelect from "../components/TestSelect.vue"
-import TestButton from "../components/TestButton.vue"
-import TestSlider from "../components/TestSlider.vue"
-
+import TestText from "../components/TestText.vue";
+import TestSelect from "../components/TestSelect.vue";
+import TestButton from "../components/TestButton.vue";
+import TestSlider from "../components/TestSlider.vue";
 
 export default {
   components: {
@@ -54,31 +55,31 @@ export default {
     testText: TestText,
     testSelect: TestSelect,
     testButton: TestButton,
-    testSlider: TestSlider,
+    testSlider: TestSlider
   },
 
   data() {
     return {
       i: 0,
       data: Data,
-      result: Result[0],
+      result: Result[0]
     };
   },
 
   methods: {
     addPoints(categoryAnswer) {
-      for (const category of categoryAnswer){
-          this.result[category] += 1
-        }
-        this.i+=1
-      console.log(this.result)
+      for (const category of categoryAnswer) {
+        this.result[category] += 1;
+      }
+      this.i += 1;
+      console.log(this.result);
     },
-    
+
     addPrice(price) {
-      this.result['prispevek'] = price
-      console.log(this.result)
-    },
-  },
+      this.result["prispevek"] = price;
+      console.log(this.result);
+    }
+  }
 };
 </script>
 
@@ -187,7 +188,6 @@ a {
   justify-content: space-evenly;
 }
 
-
 .logo {
   max-width: 100%;
   max-height: 100%;
@@ -202,7 +202,7 @@ a {
   text-align: center;
 }
 
-.logooznacene{
+.logooznacene {
   opacity: 0.5;
 }
 
@@ -210,9 +210,9 @@ a {
   background-color: #f4f4efff;
   color: #202e42;
   font-weight: 550;
-  }
+}
 
-.answeroznacene{
+.answeroznacene {
   background-color: #f4f4efff;
   color: #202e42;
   font-weight: 550;
@@ -224,7 +224,7 @@ a {
   font-weight: 550;
 }
 
-.answer:hover .button{
+.answer:hover .button {
   color: #202e42;
   font-weight: 550;
 }
@@ -244,25 +244,25 @@ a {
   width: 600px;
 }
 
-.next{
+.next {
   display: flex;
   justify-content: center;
   margin-top: 80px;
 }
 
-.slider{
+.slider {
   margin-top: 100px;
 }
 
-.v-slider__tick-label{
-      color: #f4f4efff;
-      font-size: 18px;
-      font-family: Roboto, sans-serif;
-  }
+.v-slider__tick-label {
+  color: #f4f4efff;
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+}
 
-.v-slider__tick{
-      background-color: rgba(239, 110, 108, 0.555) !important;
-  }
+.v-slider__tick {
+  background-color: rgba(239, 110, 108, 0.555) !important;
+}
 @media (max-width: 800px) {
   .cross {
     width: 40px;
@@ -319,8 +319,8 @@ a {
     height: 145px;
   }
 
-  .v-slider__tick-label{
-  font-size: 14px;
+  .v-slider__tick-label {
+    font-size: 14px;
   }
 }
 </style>
