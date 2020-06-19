@@ -38,7 +38,7 @@
             <div class="happiness__advice__item third">
                 <div class="happiness__advice__item--digit">3</div>
                 <div class="happiness__advice__item--wrapper">
-                <p class="happiness__advice__text--item" :class="{show: third, hide: !third}">A konečně za třetí. Z experimentů jasně vyplývá, že utrácet peníze za někoho jiného tě udělá šťastnějším, než utratit je za sebe. Pravidelná pomoc druhým je zkrátka automat na štěstí! <em class="happiness__advice__item--em">Pomáhej</em>, buď šťastnější a jestli jsi založením spíš analytik či analytička, akademický článek na toto téma najdeš <a href="https://www.researchgate.net/publication/5494996_Spending_Money_on_Others_Promotes_Happiness">zde</a></p>
+                <p class="happiness__advice__text--item" :class="{show: third, hide: !third}">A konečně za třetí. Z experimentů jasně vyplývá, že utrácet peníze za někoho jiného tě udělá šťastnějším, než utratit je za sebe. Pravidelná pomoc druhým je zkrátka automat na štěstí! <em class="happiness__advice__item--em">Pomáhej</em>, buď šťastnější a jestli jsi založením spíš analytik či analytička, akademický článek na toto téma najdeš <a class="link" href="https://www.researchgate.net/publication/5494996_Spending_Money_on_Others_Promotes_Happiness">zde</a></p>
                 </div>
             </div>
             
@@ -112,7 +112,7 @@ export default {
     margin: 0 10% 0 10%;
     color: #291F1E;
     font-size: 110%;
-    font-weight: 300;
+    font-weight: 600;
 }
 
 .happiness__advice__item {

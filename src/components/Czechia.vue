@@ -14,9 +14,9 @@
 
       <div class="text">
 
-        <p>Ve <a href="https://www.cafonline.org/about-us/publications/2019-publications/caf-world-giving-index-10th-edition">světovém indexu dobročinnosti</a> je Česko nejen jednou z nejméně štědrých zemí, ale také tou, kde ochota darovat peníze či pomoci cizímu člověku v nouzi stále klesá.</p>
+        <p>Ve <a class="link" href="https://www.cafonline.org/about-us/publications/2019-publications/caf-world-giving-index-10th-edition">světovém indexu dobročinnosti</a> je Česko nejen jednou z nejméně štědrých zemí, ale také tou, kde ochota darovat peníze či pomoci cizímu člověku v nouzi stále klesá.</p>
         <p>To se máme ve střední Evropě tak špatně, abychom se řadili po bok africkým státům zmítaným válkami? Možná, že občas zapomínáme, že náš cípek světa je epicentrem blahobytu. A možná, že kdybychom se u nás doma více zajímali o druhé, potkávali bychom v ulicích českých měst šťastnější tváře.</p>
-        <p>Jedna z nich může být i tvoje.</p>
+        <p class="face">Jedna z nich může být i tvoje.</p>
 
       </div>
 
@@ -42,6 +42,11 @@ export default {
 }
 
 .czechia__heading p {
+  color: #ef6f6c;
+}
+
+.face{
+  font-weight: 600;
   color: #ef6f6c;
 }
 

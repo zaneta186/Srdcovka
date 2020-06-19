@@ -101,6 +101,12 @@ export default {
   font-weight: 300;
 }
 
+.link {
+  text-decoration: none;
+  color: #00728f !important;
+  font-weight: 500;
+}
+
 @media (min-width:600px) {
 
   .main {

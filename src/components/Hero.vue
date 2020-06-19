@@ -54,7 +54,7 @@ export default {
     justify-content: center;
     align-items: center;
     line-height: 1;
-
+    margin-bottom: 4rem;
 }
 
 .hero__title {

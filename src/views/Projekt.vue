@@ -89,38 +89,34 @@ export default {
 
 <style>
 
-    .wrapper {
-        display: flex;
-        justify-content: flex-start;
-    }
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
 
-    .creators {
-        flex-basis: 30%;
-        margin-top: 5rem;
-        text-align: center;
-        color: #291F1E;
-    }
+.creators {
+    order: 1;
+}
 
-    .creators__title {
-        margin: 0 0 4rem 0;
+.creators__title {
+        margin: 4rem 0 4rem 0;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 200;
         font-size: 2rem;
         color: #00728f;
-    }
+}
 
-    .about {
+.about {
         margin-top: 5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        flex-basis: 70%;
         color: #291F1E;
     }
 
-    .about__circle {
+.about__circle {
         margin-top: 1rem;
         position: relative;
     }
@@ -153,9 +149,36 @@ export default {
         color: #ef6f6c;
     }
 
+
+@media screen and (min-width: 600px) {
+
+    .wrapper {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .creators {
+        flex-basis: 30%;
+        margin-top: 5rem;
+        text-align: center;
+        color: #291F1E;
+        order: 0;
+    }
+
+    .creators__title {
+        margin: 0 0 4rem 0;
+    }
+
+    .about {
+        flex-basis: 70%;
+    }
+
+
     .about__text {
         width: 60%;
     }
+
+}
 
 
 
