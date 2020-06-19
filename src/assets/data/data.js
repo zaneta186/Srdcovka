@@ -68,7 +68,7 @@ export default [
     },
 
     {   id: 104,
-        question: ' Jak si představuješ ideální dovolenou?',
+        question: 'Jak si představuješ ideální dovolenou?',
         description: '',
         type: 'text',
         media: {type: '', url: ''},
@@ -94,16 +94,16 @@ export default [
     },
 
     {   id: 106,
-        question: 'Kterou znásledujících osobností nejvíce obdivuješ?',
+        question: 'Kterou z následujících osobností nejvíce obdivuješ?',
         description: '',
         type: 'text',
         media: {type: '', url: ''},
         answers: [
             {id: 1061,category: ['socZdravi',], name: 'Jonas Salk: vynálezce vakcíny na dětskou obrnu, který ji poskytl lidstvu bez patentu', check: false},
-            {id: 1062,category: ['mensiny',], name: 'Martin Luther King: aktivista a lídr hnutí za lidskápráva', check: false},
+            {id: 1062,category: ['mensiny',], name: 'Martin Luther King: aktivista a lídr hnutí za lidská práva', check: false},
             {id: 1063,category: ['rozvojovaAHumanitarniPomoc',], name: 'Matka Tereza: humanitární pracovnice a řeholnice', check: false},
             {id: 1064,category: ['vzdelani',], name: 'René Descartes: zakladatel moderního vědeckého bádání', check: false},
-            {id: 1065,category: ['ekologie', 'zvirata'], name: 'Jane Goodall: bioložkazabývající se výzkumemprimátů', check: false},
+            {id: 1065,category: ['ekologie', 'zvirata'], name: 'Jane Goodall: bioložka zabývající se výzkumem primátů', check: false},
             {id: 1066,category: ['kultura',], name: 'William Shakespeare: nejvýznamnější dramatik všech dob', check: false},
             {id: 1067,category: ['rozvojovaAHumanitarniPomoc',], name: 'Mahátma Gándhí: indický vůdce nenásilného hnutí za nezávislost a lidská práva', check: false},
 
@@ -122,7 +122,7 @@ export default [
     },
 
     {   id: 108,
-        question: ' Jakou maximální částku chceš pravidelně měsíčně přispívat na dobrou věc?',
+        question: 'Jakou maximální částku chceš pravidelně měsíčně přispívat na dobrou věc?',
         description: '',
         type: 'slider',
         media: {type: '', url: ''},
