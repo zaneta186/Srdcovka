@@ -89,8 +89,8 @@ export default {
   margin: 0;
   width: 100%;
   min-height: 100%;
-  background-image: linear-gradient(to bottom, #007391, #202e42);
-  color: #f4f4efff;
+  background-image: linear-gradient(to bottom, #00728f, #003f4e);
+  color: #f7f7f2;
   text-align: left;
 }
 
@@ -113,7 +113,7 @@ p + p {
   width: 350px;
   height: 350px;
   border-radius: 100%;
-  background-image: linear-gradient(to bottom, #007391, #202e42);
+  background-image: linear-gradient(to bottom, #00728f, #003f4e);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@ p + p {
 .outCircle {
   width: 400px;
   height: 400px;
-  background-image: linear-gradient(to bottom, #ef6f6cff, #a3333dff);
+  background-image: linear-gradient(to bottom, #ef6f6c, #a3333d);
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -144,15 +144,16 @@ p + p {
 .answers {
   margin-top: 60px;
   font-family: Roboto, sans-serif;
+  font-weight: 300;
 }
 
 .answer {
   position: relative;
-  padding: 15px;
+  padding: 20px 50px;
   font-size: 18px;
   line-height: 1.5;
-  border: 1px solid #f4f4efff;
-  border-radius: 25px;
+  border: 1px solid #f7f7f2;
+  border-radius: 15px;
   margin-bottom: 20px;
 }
 
@@ -162,9 +163,9 @@ a {
 
 .button {
   margin-bottom: 20px;
-  padding: 10px;
+  /* padding: 10px; */
   line-height: 1.5;
-  color: #f4f4efff;
+  color: #f7f7f2;
   font-size: 18px;
   display: block;
   width: 100%;
@@ -175,10 +176,12 @@ a {
 }
 
 .button02 {
+  display: flex;
   text-align: center;
+  align-items: center;
   justify-content: center;
-  height: 100px;
-  width: 250px;
+  height: 25px;
+  width: 125px;
   margin: 30px;
 }
 
@@ -203,30 +206,30 @@ a {
 }
 
 .logooznacene {
-  opacity: 0.5;
+  opacity: 0.1;
 }
 
 .buttonOznaceny {
-  background-color: #f4f4efff;
-  color: #202e42;
-  font-weight: 550;
+  background-color: #f7f7f2;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .answeroznacene {
-  background-color: #f4f4efff;
-  color: #202e42;
-  font-weight: 550;
+  background-color: #f7f7f2;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .answer:hover {
-  background-color: #f4f4efff;
-  color: #202e42;
-  font-weight: 550;
+  background-color: #f7f7f2;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .answer:hover .button {
-  color: #202e42;
-  font-weight: 550;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .ytvideo {
@@ -255,13 +258,13 @@ a {
 }
 
 .v-slider__tick-label {
-  color: #f4f4efff;
+  color: #f7f7f2;
   font-size: 18px;
   font-family: Roboto, sans-serif;
 }
 
 .v-slider__tick {
-  background-color: rgba(239, 110, 108, 0.555) !important;
+  background-color: rgba(#a3333d, 0.555) !important;
 }
 @media (max-width: 800px) {
   .cross {

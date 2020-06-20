@@ -21,7 +21,7 @@
         />
         <img src="./../assets/images/logo.png" alt="logo" class="logo" />
         <button
-          class="button button02"
+          class="button02"
           v-bind:class="{buttonOznaceny: answer.check}"
         >{{answer.name}}</button>
       </div>

@@ -13,10 +13,10 @@
             track-color="#f4f4efff"
             v-model="prices"
             :tick-labels="ticksLabels"
-            :max="3"
+            :max="2"
             step="1"
             ticks="always"
-            tick-size="3"
+            tick-size="2"
           ></v-slider>
         </v-card-text>
       </div>
@@ -41,7 +41,7 @@ export default {
       categoriesAnswer: "",
       value: 0,
       prices: 0,
-      ticksLabels: ["100 Kč", "300 Kč", "500 Kč", "800 Kč"]
+      ticksLabels: ["300 Kč", "500 Kč", "800 Kč"]
     };
   },
 
