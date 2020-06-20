@@ -1,13 +1,13 @@
 <template>
   <v-container>
     <v-card class="mx-auto" max-width="600">
-      <!-- <v-img
+      <v-img
         class="white--text align-end"
         height="200px"
-        :src="require(`./../assets/images/${organizace.picture}`)"
-      > -->
+        :src="organizace.picture.url"
+      >
         <v-card-title class="detail__title">{{organizace.title}}</v-card-title>
-      <!-- </v-img> -->
+      </v-img>
 
       <v-card-subtitle class="pb-0">{{organizace.segment.name}}</v-card-subtitle>
 

@@ -71,12 +71,20 @@
                 :counter="170"
                 :auto-grow="autoGrow"
                 :clearable="clearable"
-                label="Ilustrační příklad: Specifikujte, prosím, jak konkrétně může Vaše organizace využít měsíční příspěvek v hodnotě maximálně 1000 Kč:"
+                label="Ilustrační příklad: Specifikujte, prosím, jak konkrétně může Vaše organizace využít měsíční příspěvek v hodnotě maximálně 800 Kč:"
                 :outlined="outlined"
-                placeholder="1000 Kč – Nakoupíme tři polohovací polštáře pro pacienty našeho stacionáře."
+                placeholder="800 Kč – Nakoupíme tři polohovací polštáře pro pacienty našeho stacionáře."
                 rows="2"></v-textarea>
 
-            <v-file-input color="#00728f" accept="image/*,.pdf" label="Nahrajte své logo"></v-file-input>
+            <v-file-input color="#00728f" accept="image/*,.pdf" label="Nahrajte logo organizace (ve formátu .png, .gif nebo .jpg)"></v-file-input>
+
+            <v-text-field
+                color="#00728f"
+                v-model="personContact"
+                :counter="100"
+                :rules="nameRules"
+                label="Kontaktní osoba"
+                required></v-text-field>
 
             <v-text-field
                 color="#00728f"
@@ -114,7 +122,7 @@
             </v-btn>
 
             <v-btn
-                color="error"
+                color="red"
                 class="mr-4"
                 @click="reset">
                 RESET
@@ -154,6 +162,7 @@ export default {
                 min: v => v.length >= 8 || 'Min 8 characters',
                 emailMatch: () => ('The email and password you entered don\'t match'),
             },
+            personContact: '',
         }
     },
 

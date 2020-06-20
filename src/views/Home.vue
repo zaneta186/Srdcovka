@@ -1,7 +1,7 @@
 <template>
   <v-content>
 
-    <div class="home__content">
+    <div>
 
       <hero />
     
@@ -40,10 +40,6 @@ export default {
 </script>
 
 <style>
-
-/* .home__content {
-  scroll-snap-type: y mandatory !important;
-} */
 
 
 
