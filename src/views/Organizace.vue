@@ -6,7 +6,7 @@
       <div class="organisations__list">
         <v-list :two-line="twoLine" :avatar="avatar">
           <v-subheader>
-            <v-btn to="/registrace-organizace" color="#00728f" dark rounded small class="addOrg">
+            <v-btn to="/registrace-organizace" color="#ef6f6c" dark rounded>
               <v-icon>mdi-plus</v-icon>Přidej svou organizaci
             </v-btn>
           </v-subheader>
@@ -18,8 +18,7 @@
               @click="chooseOrganisation(item.id)"
             >
               <v-list-item-avatar v-if="item.logo">
-                <!-- <v-icon>mdi-hand</v-icon> -->
-                <v-img :src="require(`./../assets/images/${item.logo}`)" />
+                <v-img :src="item.logo.url" />
               </v-list-item-avatar>
 
               <v-list-item-content>
@@ -99,6 +98,7 @@ export default {
 </script>
 
 <style>
+
 .organisations__desktop {
   display: none;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <div class="question">
-      <p>{{actualQuestion.description}}</p>
+      <p class="description">{{actualQuestion.description}}</p>
       <p>{{actualQuestion.question}}</p>
     </div>
     <iframe v-if="actualQuestion.media && actualQuestion.media.type === 'video'" class="ytvideo" v-bind:src="actualQuestion.media.url"></iframe>

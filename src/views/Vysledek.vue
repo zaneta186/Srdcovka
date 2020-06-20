@@ -16,6 +16,7 @@
         </div>
 
       </div>
+
         <div class="result__segments">
 
           <resultcard1 class="basis"
@@ -61,8 +62,6 @@ export default {
       avatar: true,
       show1: true,
       show2: true,
-      resultNeedle: true,
-      rotate: false,
     }
   },
 

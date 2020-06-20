@@ -38,7 +38,7 @@
 
                     <div class="result__odkazy">
                       <v-btn icon> <v-icon color="#ef6f6c">mdi-information</v-icon></v-btn>
-                      <v-btn icon :href="item.link"> <v-icon color="#a3333d">mdi-web</v-icon></v-btn>
+                      <v-btn icon :href="item.link" target="_blank"> <v-icon color="#a3333d">mdi-web</v-icon></v-btn>
                     </div>
 
                   </div>

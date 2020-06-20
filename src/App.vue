@@ -1,13 +1,13 @@
 <template>
   <v-app class="app">
 
-    <navigace v-bind:menuItems="menuItems" />
+    <navigace :menuItems="menuItems" />
 
 
     <router-view></router-view>
 
 
-    <paticka v-bind:menuItems="menuItems" />
+    <paticka :menuItems="menuItems" />
 
     
   </v-app>
@@ -32,7 +32,7 @@ export default {
             
             menuItems: [
                 {nazev: 'O projektu', link: '/projekt'},
-                {nazev: 'Organizace v naší databázy', link: '/organizace'},
+                {nazev: 'Organizace v naší databázi', link: '/organizace'},
                 {nazev: 'Spustit test', link: '/test'},
         ],
     }
@@ -73,7 +73,7 @@ export default {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   font-family: 'Poppins', sans-serif;
   z-index: 2;
   background-color: #f7f7f2;
@@ -104,12 +104,12 @@ export default {
 .text {
   color: #291F1E;
   margin: 0 10% 0 10%;
-  font-size: 110%;
+  font-size: 100%;
   font-weight: 300;
 }
 
 .link {
-  text-decoration: none;
+  text-decoration: underline;
   color: #00728f !important;
   font-weight: 500;
 }
@@ -123,8 +123,44 @@ export default {
     grid-template-rows: repeat(4, 25%);
     column-gap: 2rem;
     align-items: center;
-    margin: 20rem 0 20rem 0;
+    margin: 10rem 0 10rem 0;
   }
+
+  .heading {
+    grid-column: 1;
+    grid-row: 1/ span 4;
+    width: 350px;
+    height: 350px;
+    margin:0;
+    font-size: 110%;
+    padding: 0 4rem;
+  }
+
+  .heading__subtitle {
+    margin-top: 2rem;
+  }
+
+  .gradient {
+    grid-column: 1;
+    grid-row: 1/ span 4;
+    width: 400px;
+    height: 400px;
+    position: static;
+    align-self: center;
+    transform: translate(-25px, 0);
+    z-index: 1;
+  }
+  .arrow {
+    display: none;
+  }
+  .text {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    text-align: left;
+    font-size: 100%;
+    font-weight: 300;
+  }
+  
 
 }
 

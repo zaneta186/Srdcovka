@@ -108,7 +108,7 @@ export default {
 }
 
 .about {
-        margin-top: 5rem;
+        margin-top: 4rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -166,7 +166,7 @@ export default {
     }
 
     .creators__title {
-        margin: 0 0 4rem 0;
+        margin: 0 0 3rem 0;
     }
 
     .about {

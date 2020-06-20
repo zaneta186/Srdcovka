@@ -5,7 +5,7 @@
 
           <div class="picture">
 
-              <!-- <img :src="require(`./../assets/images/${osoba.picture}`)" alt="osoba.name"> -->
+              <img :src="require(`./../assets/images/${osoba.picture}`)" alt="osoba.name">
 
           </div>
 
@@ -38,6 +38,7 @@ export default {
         border-radius: 0.5rem;
         margin-bottom: 4rem;
         z-index: 2;
+        text-align: center;
     }
 
     .name {
