@@ -28,9 +28,9 @@ Vue.use(VueRouter)
     component: Vysledek
   },
   {
-    path: '/organizace',
-    name: 'Organizace',
-    component: Organizace
+    path: '/vysledek',
+    name: 'Vysledek',
+    component: Vysledek
   },
   {
     path: '/organizace/:id',

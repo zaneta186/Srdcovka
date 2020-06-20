@@ -28,7 +28,7 @@
             <v-spacer></v-spacer>
 
             <ul class="bar__menu--desktop">
-                <li v-for="(item,i) in menuItems" v-bind:key="i"><router-link class="bar__menu--desktop--link" v-bind:to="`${item.link}`">{{item.nazev}}</router-link></li>
+                <li v-for="(item,i) in menuItems" v-bind:key="i"><router-link class="bar__menu--desktop--link" :to="`${item.link}`">{{item.nazev}}</router-link></li>
             </ul>
  
             <div class="icons-mobile">
@@ -92,15 +92,7 @@ export default {
 
     .bar__menu--desktop--link {
         text-decoration: none;
-        color: #00728f !important;
-        border: 1px solid transparent;
-        padding: 5px;
-    }
-
-    .bar__menu--desktop--link:hover {
-        border: 1px solid #00728f;
-        border-radius: 5px;
-        padding: 5px;
+        color: #291F1E;
     }
 }
 

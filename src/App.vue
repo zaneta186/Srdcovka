@@ -1,13 +1,13 @@
 <template>
   <v-app class="app">
 
-    <navigace :menuItems="menuItems" />
+    <navigace v-bind:menuItems="menuItems" />
 
 
     <router-view></router-view>
 
 
-    <paticka :menuItems="menuItems" />
+    <paticka v-bind:menuItems="menuItems" />
 
     
   </v-app>
@@ -119,39 +119,6 @@ export default {
     margin: 20rem 0 20rem 0;
   }
 
-  .heading {
-    grid-column: 1;
-    grid-row: 1/ span 4;
-    width: 350px;
-    height: 350px;
-    margin:0;
-    font-size: 150%;
-  }
-
-  .gradient {
-    grid-column: 1;
-    grid-row: 1/ span 4;
-    width: 400px;
-    height: 400px;
-    position: static;
-    align-self: center;
-    transform: translate(-25px, 0);
-    z-index: 1;
-  }
-
-  .arrow {
-    display: none;
-  }
-
-  .text {
-    grid-column: 2;
-    grid-row: 1 / span 4;
-    text-align: left;
-    font-size: 125%;
-    font-weight: 300;
-  }
-
-  
 }
 
 </style>
