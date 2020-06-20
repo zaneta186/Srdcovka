@@ -5,7 +5,7 @@
 
           <div class="picture">
 
-              <img :src="require(`../assets/images/${osoba.picture}`)" alt="osoba.name">
+              <!-- <img :src="require(`./../assets/images/${osoba.picture}`)" alt="osoba.name"> -->
 
           </div>
 

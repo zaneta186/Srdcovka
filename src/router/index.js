@@ -11,7 +11,7 @@ import Projekt from '../views/Projekt.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
@@ -28,9 +28,9 @@ Vue.use(VueRouter)
     component: Vysledek
   },
   {
-    path: '/vysledek',
-    name: 'Vysledek',
-    component: Vysledek
+    path: '/organizace',
+    name: 'Organizace',
+    component: Organizace
   },
   {
     path: '/organizace/:id',
@@ -47,7 +47,7 @@ Vue.use(VueRouter)
     name: 'Projekt',
     component: Projekt
   }
-  
+
 ]
 
 const router = new VueRouter({

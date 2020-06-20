@@ -1,5 +1,6 @@
 <template>
   <v-container>
+      <div class="sticky">
         <v-card
         v-if="chosen"
         class="mx-auto"
@@ -39,6 +40,7 @@
                         </v-btn>
                     </v-card-actions>
         </v-card>
+    </div>
   </v-container>
 </template>
 
@@ -51,6 +53,11 @@ export default {
 </script>
 
 <style>
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
 
 .action__link {
     text-decoration: none;
