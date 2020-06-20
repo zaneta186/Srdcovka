@@ -132,9 +132,7 @@ p + p {
 }
 
 .test {
-  /* margin: -130px 15% 0 22%; */
-  margin-top: 200px;
-  margin-right: 100px;
+  margin: -130px 15% 0 22%;
 }
 
 .question {

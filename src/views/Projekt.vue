@@ -2,7 +2,7 @@
 
     <v-container>
 
-        <div class="wrapper">
+        <div class="creators__wrapper">
 
             <div class="creators">
 
@@ -89,7 +89,7 @@ export default {
 
 <style>
 
-.wrapper {
+.creators__wrapper {
     display: flex;
     flex-direction: column;
 }
@@ -152,7 +152,7 @@ export default {
 
 @media screen and (min-width: 600px) {
 
-    .wrapper {
+    .creators__wrapper {
         flex-direction: row;
         justify-content: flex-start;
     }
