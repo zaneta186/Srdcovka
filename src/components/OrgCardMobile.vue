@@ -7,7 +7,7 @@
                     <v-img
                     class="white--text align-end"
                     height="200px"
-                    src="./../assets/images/clovekvtisni.jpg"
+                    :src="require(`./../assets/images/${organizace.picture}`)"
                     >
                     <v-card-title class="detail__title">{{organizace.title}}</v-card-title>
                     </v-img>

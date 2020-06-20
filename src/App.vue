@@ -30,10 +30,9 @@ export default {
 
             
             menuItems: [
-                {nazev: 'O projektu', link: '#'},
+                {nazev: 'O projektu', link: '/projekt'},
                 {nazev: 'Organizace v naší databázy', link: '/organizace'},
-                {nazev: 'Tvůj profil', link: '/profil'},
-                {nazev: 'Spusť test', link: '/test'},
+                {nazev: 'Spustit test', link: '/test'},
         ],
     }
   },
@@ -44,8 +43,82 @@ export default {
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-  .app  {
-    background-color: #f7f7f2 !important;
+.app  {
+  background: linear-gradient(#f7f7f2, #f8f8ed)  !important;
+}
+
+.main {
+  margin: 4rem 0 4rem 0;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.heading {
+  color: #291F1E;
+  margin-bottom: 3rem;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Poppins', sans-serif;
+  z-index: 2;
+  background-color: #f7f7f2;
+}
+
+.gradient {
+  position: absolute;
+  top: -25px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;  
+}
+
+.heading__span {
+  font-weight: 900;
+  color: #a3333d;
+}
+
+.arrow {
+  width: 0; 
+  height: 0; 
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-top: 1.5rem solid #ef6f6c;
+  margin: 1.5rem 0;
+}
+
+.text {
+  color: #291F1E;
+  margin: 0 10% 0 10%;
+  font-size: 110%;
+  font-weight: 300;
+}
+
+.link {
+  text-decoration: none;
+  color: #00728f !important;
+  font-weight: 500;
+}
+
+@media (min-width:600px) {
+
+  .main {
+    display: grid;
+    max-height: 100vh;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(4, 25%);
+    column-gap: 2rem;
+    align-items: center;
+    margin: 20rem 0 20rem 0;
   }
+
+}
 
 </style>
