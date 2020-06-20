@@ -1,18 +1,20 @@
 <template>
   <div class="test">
     <div class="question">
-      <p>{{description}}</p>
-      <p>{{question}}</p>
+      <p>{{actualQuestion.description}}</p>
+      <p>{{actualQuestion.question}}</p>
     </div>
 
     <div class="answers answers02">
       <div
         class="answer"
         v-bind:key="index"
-        v-for="(answer, index) in answers"
+        v-for="(answer, index) in actualQuestion.answers"
         v-bind:class="{answeroznacene: answer.check}"
-        v-on:click="changeStatus(index)"
+        v-on:click="changeStatus(answer.id)"
       >
+
+
         <img
           v-if="answer.check"
           src="./../assets/images/logo.png"
@@ -23,11 +25,12 @@
         <button
           class="button button02"
           v-bind:class="{buttonOznaceny: answer.check}"
-        >{{answer.name}}</button>
+        >{{answer.answer}}</button>
+
       </div>
     </div>
 
-    <div v-on:click="sendCategoriesAnswer(answers.filter(answer => answer.check))">
+    <div v-on:click="sendCategoriesAnswer()">
       <next />
     </div>
   </div>
@@ -36,7 +39,7 @@
 <script>
 import Next from "../components/TestNext.vue";
 export default {
-  props: ["question", "description", "answers"],
+  props: ["actualQuestion"],
   data() {
     return {
       categoriesAnswer: ""
@@ -48,25 +51,24 @@ export default {
   },
 
   methods: {
-    sendCategoriesAnswer(categoryAnswer) {
-      if (categoryAnswer.length !== 0) {
-        this.$emit("addPoints", categoryAnswer);
+    sendCategoriesAnswer() {
+      const selectedAnswer = this.actualQuestion.answers.find(answer => answer.check)
+      if (selectedAnswer) {
+        this.$emit("addPoints", selectedAnswer.category);
       }
     },
 
-    changeStatus(index) {
-      if (this.answers[index].check === true) {
-        this.answers[index].check = !this.answers[index].check;
+    changeStatus(id) {
+      const curr = this.actualQuestion.answers.find(answer => answer.id === id)
+      if (curr.check === true) {
+        curr.check = !curr.check;
       } else {
-        for (let answer of this.answers) {
+        for (let answer of this.actualQuestion.answers) {
           answer.check = false;
         }
-        this.answers[index].check = !this.answers[index].check;
+        curr.check = !curr.check;
       }
     }
   }
 };
 </script>
-
-<style scoped>
-</style>

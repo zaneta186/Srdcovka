@@ -1,18 +1,20 @@
 <template>
   <div class="test">
     <div class="question">
-      <p>{{description}}</p>
-      <p>{{question}}</p>
+      <p>{{actualQuestion.description}}</p>
+      <p>{{actualQuestion.question}}</p>
     </div>
 
     <div class="answers answers02">
       <div
         class="answer"
         v-bind:key="index"
-        v-for="(answer, index) in answers"
+        v-for="(answer, index) in actualQuestion.answers"
         v-bind:class="{answeroznacene: answer.check}"
         v-on:click="zmenStatus(index)"
       >
+      
+
         <img
           v-if="answer.check"
           src="./../assets/images/logo.png"
@@ -23,11 +25,11 @@
         <button
           class="button02"
           v-bind:class="{buttonOznaceny: answer.check}"
-        >{{answer.name}}</button>
+        >{{answer.answer}}</button>
       </div>
     </div>
 
-    <div v-on:click="sendCategories(answers.filter(answer => answer.check))">
+    <div v-on:click="sendCategories">
       <next />
     </div>
   </div>
@@ -36,7 +38,7 @@
 <script>
 import Next from "../components/TestNext.vue";
 export default {
-  props: ["question", "description", "answers"],
+  props: ["actualQuestion"],
   data() {
     return {
       categoriesAnswer: ""
@@ -48,14 +50,13 @@ export default {
   },
 
   methods: {
-    sendCategories(answers) {
+    sendCategories() {
+      const trueCount = this.actualQuestion.answers.reduce((acumulator, answer) => answer.check ? acumulator+1 : acumulator,0)
       const categoryAnswer = [];
-      if (answers.length < 6 && answers.length !== 0) {
-        for (let answer of answers) {
-          let listcategories = answer.category;
-          for (let category of listcategories) {
-            categoryAnswer.push(category);
-          }
+      const trueAnswers = this.actualQuestion.answers.filter(answer => answer.check)
+      if (trueCount < 6 && trueCount !== 0) {
+        for (let answer of trueAnswers) {
+          categoryAnswer.push(answer.category);         
         }
         console.log(categoryAnswer);
         this.$emit("addPoints", categoryAnswer);
@@ -63,9 +64,9 @@ export default {
     },
 
     zmenStatus(index) {
-      let checked = this.answers.filter(answer => answer.check === true).length;
-      if (checked < 5 || this.answers[index].check === true) {
-        this.answers[index].check = !this.answers[index].check;
+      let checked = this.actualQuestion.answers.filter(answer => answer.check).length;
+      if (checked < 5 || this.actualQuestion.answers[index].check === true) {
+        this.actualQuestion.answers[index].check = !this.actualQuestion.answers[index].check;
       }
     }
   }

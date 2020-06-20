@@ -1,19 +1,21 @@
 <template>
   <div class="test">
     <div class="question">
-      <p>{{description}}</p>
-      <p>{{question}}</p>
+      <p>{{actualQuestion.description}}</p>
+      <p>{{actualQuestion.question}}</p>
     </div>
-    <iframe v-if="url !== ''" class="ytvideo" v-bind:src="url"></iframe>
+    <iframe v-if="actualQuestion.media && actualQuestion.media.type === 'video'" class="ytvideo" v-bind:src="actualQuestion.media.url"></iframe>
+    <v-img v-if="actualQuestion.media && actualQuestion.media.type === 'image'"  v-bind:src="actualQuestion.media.url"></v-img>
 
     <div class="answers">
       <div
         class="answer"
-        v-bind:key="index"
-        v-for="(answer,index) in answers"
+        v-bind:key="answer.id"
+        v-for="(answer) in actualQuestion.answers"
         v-bind:class="{answeroznacene: answer.check}"
-        v-on:click="changeResultCategories(answer.category, index)"
+        v-on:click="changeStatus(answer.id)"
       >
+ 
         <img
           v-if="answer.check"
           src="./../assets/images/logo.png"
@@ -21,11 +23,11 @@
           class="logo logooznacene"
         />
         <img src="./../assets/images/logo.png" alt="logo" class="logo" />
-        <p>{{answer.name}}</p>
+        <p>{{answer.answer}}</p>
       </div>
     </div>
 
-    <div v-on:click="sendCategoriesAnswer(categoriesAnswer)">
+    <div v-on:click="sendCategoriesAnswer">
       <next />
     </div>
   </div>
@@ -35,7 +37,7 @@
 import Next from "../components/TestNext.vue";
 
 export default {
-  props: ["question", "description", "answers", "url"],
+  props: ["actualQuestion"],
 
   data() {
     return {
@@ -48,27 +50,26 @@ export default {
   },
 
   methods: {
-    sendCategoriesAnswer(categoryAnswer) {
-      if (this.answers.filter(answer => answer.check).length !== 0) {
-        this.$emit("addPoints", categoryAnswer);
+    sendCategoriesAnswer() {
+      const selectedAnswer = this.actualQuestion.answers.find(answer => answer.check)
+      if (selectedAnswer) {
+        this.$emit("addPoints", selectedAnswer.category);
+        console.log(selectedAnswer.category)
       }
-    },
+    }, 
 
-    changeStatus(index) {
-      if (this.answers[index].check === true) {
-        this.answers[index].check = !this.answers[index].check;
+    changeStatus(id) {
+      const curr = this.actualQuestion.answers.find(answer => answer.id === id)
+      console.log(curr)
+      if (curr.check === true) {
+        curr.check = !curr.check;
       } else {
-        for (let answer of this.answers) {
+        for (let answer of this.actualQuestion.answers) {
           answer.check = false;
         }
-        this.answers[index].check = !this.answers[index].check;
+        curr.check = !curr.check;
       }
     },
-
-    changeResultCategories(categories, index) {
-      this.categoriesAnswer = categories;
-      this.changeStatus(index);
-    }
   }
 };
 </script>

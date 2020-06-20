@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <div class="question">
-      <p>{{question}}</p>
+      <p>{{actualQuestion.question}}</p>
     </div>
 
     <div class="answers">
@@ -34,7 +34,7 @@
 import Next from "../components/TestNext.vue";
 
 export default {
-  props: ["question", "answers"],
+  props: ["actualQuestion"],
 
   data() {
     return {
@@ -51,6 +51,7 @@ export default {
 
   methods: {
     sendMaxPrice(price) {
+      console.log('price:', price)
       this.$emit("addPrice", price);
     }
   }

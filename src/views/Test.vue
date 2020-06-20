@@ -1,38 +1,30 @@
 <template>
   <div class="wrapper">
-    <circle-with-percent v-bind:id="data[i].id" />
+    <circle-with-percent v-bind:id="actualQuestion.id" />
     <router-link to="/">
       <cross />
     </router-link>
 
     <test-text
-      v-if="data[i].type === 'text'"
-      v-bind:answers="data[i].answers"
-      v-bind:url="data[i].media.url"
-      v-bind:question="data[i].question"
-      v-bind:description="data[i].description"
+      v-if="actualQuestion.type === 'text'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPoints="addPoints($event)"
     />
 
     <test-select
-      v-if="data[i].type === 'select'"
-      v-bind:answers="data[i].answers"
-      v-bind:question="data[i].question"
-      v-bind:description="data[i].description"
+      v-if="actualQuestion.type === 'select'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPoints="addPoints($event)"
     />
-
     <test-button
-      v-if="data[i].type === 'button'"
-      v-bind:answers="data[i].answers"
-      v-bind:question="data[i].question"
-      v-bind:description="data[i].description"
+      v-if="actualQuestion.type === 'button'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPoints="addPoints($event)"
     />
 
     <test-slider
-      v-if="data[i].type === 'slider'"
-      v-bind:question="data[i].question"
+      v-if="actualQuestion.type === 'slider'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPrice="addPrice($event)"
     />
   </div>
@@ -47,6 +39,7 @@ import TestText from "../components/TestText.vue";
 import TestSelect from "../components/TestSelect.vue";
 import TestButton from "../components/TestButton.vue";
 import TestSlider from "../components/TestSlider.vue";
+import { Mutations, Actions } from "./../store";
 
 export default {
   components: {
@@ -56,6 +49,16 @@ export default {
     testSelect: TestSelect,
     testButton: TestButton,
     testSlider: TestSlider
+  },
+
+  computed: {
+    actualQuestion() {
+      return this.$store.getters.getActualQuestion;
+    },
+
+    actualQuestionId() {
+      return this.$store.getters.getActualQuestionId;
+    }
   },
 
   data() {
@@ -68,16 +71,29 @@ export default {
 
   methods: {
     addPoints(categoryAnswer) {
-      for (const category of categoryAnswer) {
-        this.result[category] += 1;
+      if (typeof(categoryAnswer) === 'object'){
+        for (let category of categoryAnswer){
+            this.$store.commit(Mutations.SET_RESULT, category);
+        }
       }
-      this.i += 1;
-      console.log(this.result);
+
+      else if (categoryAnswer.includes(";")) {
+        const categories = categoryAnswer.split(";");
+        for (let category of categories) {
+          this.$store.commit(Mutations.SET_RESULT, category);
+        }
+      }else{
+          this.$store.commit(Mutations.SET_RESULT, categoryAnswer);
+      }
+      this.$store.dispatch(
+        Actions.PERFORME_NEXT_QUESTION,
+        this.actualQuestionId
+      );
     },
 
     addPrice(price) {
-      this.result["prispevek"] = price;
-      console.log(this.result);
+      console.log('price z testu',price)
+      this.$store.commit(Mutations.SET_RESULT_PRICE, price);
     }
   }
 };

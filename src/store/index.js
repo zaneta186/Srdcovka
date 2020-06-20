@@ -8,13 +8,19 @@ export const Actions = Object.freeze({
   FETCH_ORGANISATIONS: "fetchOrganisations",
   FETCH_SEGMENTS: "fetchSegments",
   FETCH_QUESTIONS: "fetchQuestions",
+  PERFORME_NEXT_QUESTION: "performeNextQuestion"
 })
 
 export const Mutations = Object.freeze({
   SET_ORGANISATIONS: "setOrganisations",
   SET_SEGMENTS: "setSegments",
   SET_QUESTIONS: "setQuestions",
-  SET_SELECTED_ORGANISATION: "setSelectedOrganisation"
+  SET_SELECTED_ORGANISATION: "setSelectedOrganisation",
+  SET_ACTUAL_QUESTION: "setActualQuestion",
+  SET_ACTUAL_QUESTION_ID: "setActualQuestionId",
+  SET_RESULT: "setResult",
+  SET_RESULT_PRICE: "setResultPrice",
+
 })
 
 export const Getters = Object.freeze({
@@ -22,16 +28,21 @@ export const Getters = Object.freeze({
   GET_ORGANISATION_BY_ID: "getOrganisationById",
   GET_SEGMENTS: "getSegments",
   GET_QUESTIONS: "getQuestions",
-  GET_SELECTED_ORGANISATION_ID: "getSelectedOrganisationId"
+  GET_SELECTED_ORGANISATION_ID: "getSelectedOrganisationId",
+  GET_ACTUAL_QUESTION: "getActualQuestion",
+  GET_ACTUAL_QUESTION_ID: "getActualQuestionId",
 })
 
 const store = new Vuex.Store({
   state: {
     organisations: [],
-    result: undefined,
+    result: [],
+    resultPrice: '',
     segmets: [],
     questions: [],
     selectedOrganisation: undefined,
+    actualQuestion: undefined,
+    actualQuestionId: undefined,
   },
   getters: {
     [Getters.GET_ORGANISATIONS](state) {
@@ -45,6 +56,12 @@ const store = new Vuex.Store({
     },
     [Getters.GET_SELECTED_ORGANISATION_ID](state) {
       return state.selectedOrganisation;
+    },
+    [Getters.GET_ACTUAL_QUESTION](state) {
+      return state.actualQuestion;
+    },
+    [Getters.GET_ACTUAL_QUESTION_ID](state) {
+      return state.actualQuestionId;
     }
   },
   mutations: {
@@ -60,7 +77,18 @@ const store = new Vuex.Store({
     [Mutations.SET_SELECTED_ORGANISATION](state, selectedOrganisationId) {
       state.selectedOrganisation = state.organisations.find(org => org.id === selectedOrganisationId);
     },
-
+    [Mutations.SET_ACTUAL_QUESTION](state, actualQuestionId) {
+      state.actualQuestion = state.questions.find(question => question.id === actualQuestionId);
+    },
+    [Mutations.SET_ACTUAL_QUESTION_ID](state, actualQuestionId) {
+      state.actualQuestionId = actualQuestionId;
+    },
+    [Mutations.SET_RESULT](state, result) {
+      state.result.push(result)
+    },
+    [Mutations.SET_RESULT_PRICE](state, price) {
+      state.resultPrice = price
+    },
   },
   actions: {
     [Actions.FETCH_ORGANISATIONS]({ commit }) {
@@ -98,10 +126,35 @@ const store = new Vuex.Store({
       fetch(`${URL_BASE}/questions`)
         .then(response => response.json())
         .then(questions => {
-          commit(Mutations.SET_QUESTIONS, questions)
+          const sortedQuestions = questions.sort((a, b) => a.id - b.id)
+          console.log(sortedQuestions)
+          const completeQuestions = sortedQuestions.map(question => {
+            return {
+              ...question,
+              answers: question.answers.map(answer => {
+                return {
+                  ...answer,
+                  check: false,
+                }
+              })
+            }
+
+          })
+          console.log(completeQuestions)
+          commit(Mutations.SET_QUESTIONS, completeQuestions)
+
+          commit(Mutations.SET_ACTUAL_QUESTION_ID, completeQuestions[0].id)
+          // commit(Mutations.SET_ACTUAL_QUESTION, completeQuestions[0].id)
+          commit(Mutations.SET_ACTUAL_QUESTION, 61)
         })
     },
 
+    [Actions.PERFORME_NEXT_QUESTION]({commit, state}, payload){
+      const indexActualQuestion = state.questions.findIndex(question => question.id === payload )
+      commit(Mutations.SET_ACTUAL_QUESTION_ID, state.questions[indexActualQuestion+1].id)
+      commit(Mutations.SET_ACTUAL_QUESTION, state.questions[indexActualQuestion+1].id)
+
+    },
   }
 });
 
