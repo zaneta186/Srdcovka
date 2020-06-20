@@ -101,9 +101,12 @@ export default {
   top: 100px;
 }
 
-p + p {
-  margin-top: 40px;
+.description {
+  margin-bottom: 60px;
 }
+/* p + p {
+  margin-top: 40px;
+} */
 
 .circle {
   margin: -50px 0 0 10%;

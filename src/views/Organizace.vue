@@ -19,7 +19,7 @@
             >
               <v-list-item-avatar v-if="item.logo">
                 <!-- <v-icon>mdi-hand</v-icon> -->
-                <v-img :src="require(`./../assets/images/${item.logo}`)" />
+                <v-img :src="item.logo.url" />
               </v-list-item-avatar>
 
               <v-list-item-content>

@@ -14,7 +14,7 @@
 
       <div class="subject__text">
 
-        <p>Přispívat na něco, čemu nevěříš, je blbost. </p>
+        <p class="subject__text--bold">Přispívat na něco, čemu nevěříš, je blbost. </p>
         <p>Aby ti pomoc přinášela dobrý pocit, musíš si najít svou oblast, která tě nenechá v klidu, téma, které tě pokaždé nadzvedne ze židle. Máš na něj jasný názor, dokážeš o něm zapáleně vykládat svým přátelům, a když na to přijde, tak i dědovi s babičkou. Nevnucuješ se, ale v racionální diskuzi dokážeš své „téma“ obhájit a pohotově reagovat na proti-argumenty.</p>
 
         <p class="subject__text_cta">Že ještě nevíš, které „téma“ je to tvé? Nevadí, proto jsi tady!</p>
@@ -145,6 +145,10 @@ export default {
     text-align: left;
     font-size: 125%;
     font-weight: 300;
+  }
+
+  .subject__text--bold {
+    font-weight: 600;
   }
 
   .subject__arrow {

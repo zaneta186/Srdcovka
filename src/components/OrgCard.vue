@@ -2,13 +2,13 @@
   <v-container class="sticky">
     <div>
       <v-card v-if="chosen" class="mx-auto" max-width="600">
-        <!-- <v-img
+        <v-img
           class="white--text align-end"
           height="200px"
-          :src="require(`./../assets/images/${chosen.picture}`)"
-        >-->
+          :src="chosen.picture.url"
+        >
         <v-card-title class="detail__title">{{chosen.title}}</v-card-title>
-        <!-- </v-img> -->
+        </v-img>
 
         <v-card-subtitle class="pb-0">{{chosen.segment.name}}</v-card-subtitle>
 

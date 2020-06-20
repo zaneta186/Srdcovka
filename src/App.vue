@@ -32,7 +32,7 @@ export default {
             
             menuItems: [
                 {nazev: 'O projektu', link: '/projekt'},
-                {nazev: 'Organizace v naší databázy', link: '/organizace'},
+                {nazev: 'Organizace v naší databázi', link: '/organizace'},
                 {nazev: 'Spustit test', link: '/test'},
         ],
     }
@@ -73,7 +73,7 @@ export default {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   font-family: 'Poppins', sans-serif;
   z-index: 2;
   background-color: #f7f7f2;

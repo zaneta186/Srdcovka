@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <div class="question">
-      <p>{{description}}</p>
+      <p class="description">{{description}}</p>
       <p>{{question}}</p>
     </div>
 
