@@ -16,6 +16,7 @@
 <script>
 import Navigace from './components/Navigace.vue';
 import Paticka from './components/Paticka.vue';
+import { actions, Actions } from './store'
 
 export default {
   name: 'App',
@@ -36,6 +37,12 @@ export default {
         ],
     }
   },
+
+  mounted(){
+    this.$store.dispatch(Actions.FETCH_ORGANISATIONS);
+    this.$store.dispatch(Actions.FETCH_SEGMENTS);
+    this.$store.dispatch(Actions.FETCH_QUESTIONS);
+  }
 };
 </script>
 
