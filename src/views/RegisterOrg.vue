@@ -164,7 +164,7 @@ export default {
       ],
       nameRules: [
         v => !!v || "Vyplňte jméno",
-        v => (v && v.length <= 10) || "Jméno nesmí přesáhnout délku 50 znaků"
+        v => (v && v.length <= 50) || "Jméno nesmí přesáhnout délku 50 znaků"
       ],
       emailRules: [
         v => !!v || "Zadejte e-mail",
