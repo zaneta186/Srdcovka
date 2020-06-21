@@ -19,18 +19,12 @@
 
         <div class="result__segments">
 
-          <resultcard1 class="basis"
-          :segment1="segment1"
-          :organizaceFiltered1="organizaceFiltered1"
+          <resultcard class="basis"
+          v-bind:key="index"
+          v-for="(sgm, index) in resultSegments"
+          :segment="sgm"
+          :show="show"
           :avatar="avatar"
-          :show1="show1"
-          />
-
-          <resultcard2 class="basis"
-          :segment2="segment2"
-          :organizaceFiltered2="organizaceFiltered2"
-          :avatar="avatar"
-          :show2="show2"
           />
 
         </div> 
@@ -45,46 +39,48 @@
 
 import categoryDescript from './../assets/data/categoryDescript.js';
 import organizace from './../assets/data/organizace';
-import ResultCard1 from './../components/ResultCard1.vue';
-import ResultCard2 from './../components/ResultCard2.vue';
+import ResultCard from './../components/ResultCard.vue';
+import {Actions, Mutations} from './../store'
 
 export default {
 
   components: {
-    resultcard1: ResultCard1,
-    resultcard2: ResultCard2,
+    resultcard: ResultCard,
   },
 
   data(){
     return{
-      segments: categoryDescript,
-      organizace: organizace,
       avatar: true,
-      show1: true,
-      show2: true,
+      show: true,
     }
   },
 
+  mounted(){
+    this.$store.dispatch(Actions.PERFORM_RESULT_IDS)
+   
+  },
+
   computed:{
-
-    // SEGMENT 1 A SEGMENT 2 POTŘEBUJI NAPOJIT NA VÝSLEDEK TESTU!!!
-
-    segment1(){
-      return this.segments[6];
+    segments(){
+      return this.$store.getters.getSegments
+    },    
+    
+    organisations(){
+      return this.$store.getters.getOrganisations
     },
 
-    segment2(){
-      return this.segments[4];
+    resultSegments(){
+      return this.$store.getters.getResultIds
     },
 
-    // SEGMENT 1 A SEGMENT 2 POTŘEBUJI NAPOJIT NA VÝSLEDEK TESTU!!!
-
-    organizaceFiltered1(){
-      return organizace.filter(object => object.category === this.segment1.name);
+    resultPrice(){
+      return this.$store.getters.getResultPrice
     },
 
-    organizaceFiltered2(){
-      return organizace.filter(object => object.category === this.segment2.name);
+ 
+    organizaceFiltered(){
+      console.log(this.organisations.filter(organisation => organisation.segment === this.resultSegments[0].category))
+      return this.organisations.filter(organisation => organisation.segment === this.resultSegments[0].category);
     },
 
   },

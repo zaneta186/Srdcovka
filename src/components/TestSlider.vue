@@ -51,7 +51,6 @@ export default {
 
   methods: {
     sendMaxPrice(price) {
-      console.log('price:', price)
       this.$emit("addPrice", price);
     }
   }

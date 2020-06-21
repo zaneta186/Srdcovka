@@ -39,11 +39,6 @@
 import Next from "../components/TestNext.vue";
 export default {
   props: ["actualQuestion"],
-  data() {
-    return {
-      categoriesAnswer: ""
-    };
-  },
 
   components: {
     next: Next
@@ -58,7 +53,6 @@ export default {
         for (let answer of trueAnswers) {
           categoryAnswer.push(answer.category);         
         }
-        console.log(categoryAnswer);
         this.$emit("addPoints", categoryAnswer);
       }
     },

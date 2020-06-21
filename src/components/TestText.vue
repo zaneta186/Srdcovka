@@ -39,12 +39,6 @@ import Next from "../components/TestNext.vue";
 export default {
   props: ["actualQuestion"],
 
-  data() {
-    return {
-      categoriesAnswer: ""
-    };
-  },
-
   components: {
     next: Next
   },
@@ -54,13 +48,11 @@ export default {
       const selectedAnswer = this.actualQuestion.answers.find(answer => answer.check)
       if (selectedAnswer) {
         this.$emit("addPoints", selectedAnswer.category);
-        console.log(selectedAnswer.category)
       }
     }, 
 
     changeStatus(id) {
       const curr = this.actualQuestion.answers.find(answer => answer.id === id)
-      console.log(curr)
       if (curr.check === true) {
         curr.check = !curr.check;
       } else {

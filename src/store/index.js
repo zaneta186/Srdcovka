@@ -8,7 +8,8 @@ export const Actions = Object.freeze({
   FETCH_ORGANISATIONS: "fetchOrganisations",
   FETCH_SEGMENTS: "fetchSegments",
   FETCH_QUESTIONS: "fetchQuestions",
-  PERFORME_NEXT_QUESTION: "performeNextQuestion"
+  PERFORME_NEXT_QUESTION: "performeNextQuestion",
+  PERFORM_RESULT_IDS: "performResultIds"
 })
 
 export const Mutations = Object.freeze({
@@ -19,6 +20,7 @@ export const Mutations = Object.freeze({
   SET_ACTUAL_QUESTION: "setActualQuestion",
   SET_ACTUAL_QUESTION_ID: "setActualQuestionId",
   SET_RESULT: "setResult",
+  SET_RESULT_IDS: "setResultIds",
   SET_RESULT_PRICE: "setResultPrice",
 
 })
@@ -31,6 +33,8 @@ export const Getters = Object.freeze({
   GET_SELECTED_ORGANISATION_ID: "getSelectedOrganisationId",
   GET_ACTUAL_QUESTION: "getActualQuestion",
   GET_ACTUAL_QUESTION_ID: "getActualQuestionId",
+  GET_RESULT_IDS: "getResultIds",
+  GET_RESULT_PRICE: "getResultPrice",
 })
 
 const store = new Vuex.Store({
@@ -38,7 +42,8 @@ const store = new Vuex.Store({
     organisations: [],
     result: [],
     resultPrice: '',
-    segmets: [],
+    resultIds: undefined,
+    segments: [],
     questions: [],
     selectedOrganisation: undefined,
     actualQuestion: undefined,
@@ -62,6 +67,12 @@ const store = new Vuex.Store({
     },
     [Getters.GET_ACTUAL_QUESTION_ID](state) {
       return state.actualQuestionId;
+    },
+    [Getters.GET_RESULT_PRICE](state) {
+      return state.resultPrice;
+    },
+    [Getters.GET_RESULT_IDS](state) {
+      return state.resultIds;
     }
   },
   mutations: {
@@ -86,7 +97,12 @@ const store = new Vuex.Store({
     [Mutations.SET_RESULT](state, result) {
       state.result.push(result)
     },
+    [Mutations.SET_RESULT_IDS](state, resultIds) {
+      console.log("Nastavuji Result ids na:", resultIds)
+      state.resultIds = resultIds
+    },
     [Mutations.SET_RESULT_PRICE](state, price) {
+      console.log("Nastavuji result prize na:", price)
       state.resultPrice = price
     },
   },
@@ -127,7 +143,6 @@ const store = new Vuex.Store({
         .then(response => response.json())
         .then(questions => {
           const sortedQuestions = questions.sort((a, b) => a.id - b.id)
-          console.log(sortedQuestions)
           const completeQuestions = sortedQuestions.map(question => {
             return {
               ...question,
@@ -140,12 +155,11 @@ const store = new Vuex.Store({
             }
 
           })
-          console.log(completeQuestions)
           commit(Mutations.SET_QUESTIONS, completeQuestions)
 
           commit(Mutations.SET_ACTUAL_QUESTION_ID, completeQuestions[0].id)
-          // commit(Mutations.SET_ACTUAL_QUESTION, completeQuestions[0].id)
-          commit(Mutations.SET_ACTUAL_QUESTION, 61)
+          commit(Mutations.SET_ACTUAL_QUESTION, completeQuestions[0].id)
+          // commit(Mutations.SET_ACTUAL_QUESTION, 61)
         })
     },
 
@@ -155,6 +169,28 @@ const store = new Vuex.Store({
       commit(Mutations.SET_ACTUAL_QUESTION, state.questions[indexActualQuestion+1].id)
 
     },
+
+    [Actions.PERFORM_RESULT_IDS]({commit, state}){
+      const resultCategories = state.result
+      let map = resultCategories.reduce((p, c) => {
+        p[c] = (p[c] || 0) + 1;
+        return p;
+      }, {})
+
+      const resultObject = Object.keys(map).map(item => {
+        return {
+          category: item,
+          count: map[item],
+          id: state.segments.find(segment => segment.key === item).id,
+          icon: state.segments.find(segment => segment.key === item).icon,
+          name: state.segments.find(segment => segment.key === item).name,
+          description: state.segments.find(segment => segment.key === item).description
+        }
+      }).sort((a,b)=> b.count - a.count).slice(0, 2)
+
+      commit(Mutations.SET_RESULT_IDS, resultObject)
+    },
+   
   }
 });
 

@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <circle-with-percent v-bind:id="actualQuestion.id" />
+    <circle-with-percent 
+    v-bind:actualQuestion="actualQuestion"
+    v-bind:questions="questions"/>
     <router-link to="/">
       <cross />
     </router-link>
@@ -33,8 +35,6 @@
 <script>
 import Cross from "../components/Cross.vue";
 import CircleWithPercent from "../components/CircleWithPercent.vue";
-import Data from "./../assets/data/data.js";
-import Result from "./../assets/data/result.js";
 import TestText from "../components/TestText.vue";
 import TestSelect from "../components/TestSelect.vue";
 import TestButton from "../components/TestButton.vue";
@@ -52,6 +52,10 @@ export default {
   },
 
   computed: {
+    questions() {
+      return this.$store.getters.getQuestions;
+    },    
+    
     actualQuestion() {
       return this.$store.getters.getActualQuestion;
     },
@@ -59,14 +63,6 @@ export default {
     actualQuestionId() {
       return this.$store.getters.getActualQuestionId;
     }
-  },
-
-  data() {
-    return {
-      i: 0,
-      data: Data,
-      result: Result[0]
-    };
   },
 
   methods: {
@@ -92,7 +88,6 @@ export default {
     },
 
     addPrice(price) {
-      console.log('price z testu',price)
       this.$store.commit(Mutations.SET_RESULT_PRICE, price);
     }
   }
