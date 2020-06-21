@@ -7,6 +7,7 @@ import Organizace from '../views/Organizace.vue'
 import RegisterOrg from '../views/RegisterOrg.vue'
 import OrgCard from '../components/OrgCard.vue'
 import Projekt from '../views/Projekt.vue'
+import Exitus from '../views/Exitus.vue'
 
 
 Vue.use(VueRouter)
@@ -46,7 +47,13 @@ const routes = [
     path: '/projekt',
     name: 'Projekt',
     component: Projekt
-  }
+  },
+  {
+    path: '/dekujeme',
+    name: 'Dekujeme',
+    component: Exitus
+  },
+
 
 ]
 

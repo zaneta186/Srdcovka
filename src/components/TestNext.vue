@@ -2,10 +2,10 @@
   <div class="next">
     <div @mouseover="upHere = true" @mouseleave="upHere = false">
       <span v-show="!upHere">
-        <v-icon color="#f4f4efff" size="100px">mdi-arrow-right-drop-circle-outline</v-icon>
+        <v-icon color="#f4f4efff" size="100px">mdi-arrow-right-bold-circle-outline</v-icon>
       </span>
       <span v-show="upHere">
-        <v-icon color="#f4f4efff" size="100px">mdi-arrow-right-drop-circle</v-icon>
+        <v-icon color="#f4f4efff" size="100px">mdi-arrow-right-bold-circle</v-icon>
       </span>
     </div>
   </div>

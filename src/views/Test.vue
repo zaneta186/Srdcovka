@@ -1,38 +1,32 @@
 <template>
   <div class="wrapper">
-    <circle-with-percent v-bind:id="data[i].id" />
+    <circle-with-percent 
+    v-bind:actualQuestion="actualQuestion"
+    v-bind:questions="questions"/>
     <router-link to="/">
       <cross />
     </router-link>
 
     <test-text
-      v-if="data[i].type === 'text'"
-      v-bind:answers="data[i].answers"
-      v-bind:url="data[i].media.url"
-      v-bind:question="data[i].question"
-      v-bind:description="data[i].description"
+      v-if="actualQuestion.type === 'text'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPoints="addPoints($event)"
     />
 
     <test-select
-      v-if="data[i].type === 'select'"
-      v-bind:answers="data[i].answers"
-      v-bind:question="data[i].question"
-      v-bind:description="data[i].description"
+      v-if="actualQuestion.type === 'select'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPoints="addPoints($event)"
     />
-
     <test-button
-      v-if="data[i].type === 'button'"
-      v-bind:answers="data[i].answers"
-      v-bind:question="data[i].question"
-      v-bind:description="data[i].description"
+      v-if="actualQuestion.type === 'button'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPoints="addPoints($event)"
     />
 
     <test-slider
-      v-if="data[i].type === 'slider'"
-      v-bind:question="data[i].question"
+      v-if="actualQuestion.type === 'slider'"
+      v-bind:actualQuestion="actualQuestion"
       v-on:addPrice="addPrice($event)"
     />
   </div>
@@ -41,12 +35,11 @@
 <script>
 import Cross from "../components/Cross.vue";
 import CircleWithPercent from "../components/CircleWithPercent.vue";
-import Data from "./../assets/data/data.js";
-import Result from "./../assets/data/result.js";
 import TestText from "../components/TestText.vue";
 import TestSelect from "../components/TestSelect.vue";
 import TestButton from "../components/TestButton.vue";
 import TestSlider from "../components/TestSlider.vue";
+import { Mutations, Actions } from "./../store";
 
 export default {
   components: {
@@ -58,26 +51,44 @@ export default {
     testSlider: TestSlider
   },
 
-  data() {
-    return {
-      i: 0,
-      data: Data,
-      result: Result[0]
-    };
+  computed: {
+    questions() {
+      return this.$store.getters.getQuestions;
+    },    
+    
+    actualQuestion() {
+      return this.$store.getters.getActualQuestion;
+    },
+
+    actualQuestionId() {
+      return this.$store.getters.getActualQuestionId;
+    }
   },
 
   methods: {
     addPoints(categoryAnswer) {
-      for (const category of categoryAnswer) {
-        this.result[category] += 1;
+      if (typeof(categoryAnswer) === 'object'){
+        for (let category of categoryAnswer){
+            this.$store.commit(Mutations.SET_RESULT, category);
+        }
       }
-      this.i += 1;
-      console.log(this.result);
+
+      else if (categoryAnswer.includes(";")) {
+        const categories = categoryAnswer.split(";");
+        for (let category of categories) {
+          this.$store.commit(Mutations.SET_RESULT, category);
+        }
+      }else{
+          this.$store.commit(Mutations.SET_RESULT, categoryAnswer);
+      }
+      this.$store.dispatch(
+        Actions.PERFORME_NEXT_QUESTION,
+        this.actualQuestionId
+      );
     },
 
     addPrice(price) {
-      this.result["prispevek"] = price;
-      console.log(this.result);
+      this.$store.commit(Mutations.SET_RESULT_PRICE, price);
     }
   }
 };
@@ -89,8 +100,8 @@ export default {
   margin: 0;
   width: 100%;
   min-height: 100%;
-  background-image: linear-gradient(to bottom, #007391, #202e42);
-  color: #f4f4efff;
+  background-image: linear-gradient(to bottom, #00728f, #003f4e);
+  color: #f7f7f2;
   text-align: left;
 }
 
@@ -101,8 +112,11 @@ export default {
   top: 100px;
 }
 
-p + p {
-  margin-top: 40px;
+.question-description {
+  margin-bottom: 60px;
+  font-size: 24px;
+  font-weight:300;
+  font-family: Poppins, sans-serif;
 }
 
 .circle {
@@ -113,7 +127,7 @@ p + p {
   width: 350px;
   height: 350px;
   border-radius: 100%;
-  background-image: linear-gradient(to bottom, #007391, #202e42);
+  background-image: linear-gradient(to bottom, #00728f, #003f4e);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +138,7 @@ p + p {
 .outCircle {
   width: 400px;
   height: 400px;
-  background-image: linear-gradient(to bottom, #ef6f6cff, #a3333dff);
+  background-image: linear-gradient(to bottom, #ef6f6c, #a3333d);
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -144,15 +158,29 @@ p + p {
 .answers {
   margin-top: 60px;
   font-family: Roboto, sans-serif;
+  font-weight: 300;
 }
 
 .answer {
+  display: flex;
+  align-items: center;
   position: relative;
-  padding: 15px;
+  padding: 20px 50px;
   font-size: 18px;
   line-height: 1.5;
-  border: 1px solid #f4f4efff;
-  border-radius: 25px;
+  border: 1px solid #f7f7f2;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+.answer-select {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px 50px;
+  font-size: 18px;
+  line-height: 1.5;
+  border: 1px solid #f7f7f2;
+  border-radius: 15px;
   margin-bottom: 20px;
 }
 
@@ -162,9 +190,9 @@ a {
 
 .button {
   margin-bottom: 20px;
-  padding: 10px;
+  /* padding: 10px; */
   line-height: 1.5;
-  color: #f4f4efff;
+  color: #f7f7f2;
   font-size: 18px;
   display: block;
   width: 100%;
@@ -175,10 +203,12 @@ a {
 }
 
 .button02 {
+  display: flex;
   text-align: center;
+  align-items: center;
   justify-content: center;
-  height: 100px;
-  width: 250px;
+  /* height: 25px; */
+  width: 125px;
   margin: 30px;
 }
 
@@ -203,30 +233,30 @@ a {
 }
 
 .logooznacene {
-  opacity: 0.5;
+  opacity: 0.1;
 }
 
 .buttonOznaceny {
-  background-color: #f4f4efff;
-  color: #202e42;
-  font-weight: 550;
+  background-color: #f7f7f2;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .answeroznacene {
-  background-color: #f4f4efff;
-  color: #202e42;
-  font-weight: 550;
+  background-color: #f7f7f2;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .answer:hover {
-  background-color: #f4f4efff;
-  color: #202e42;
-  font-weight: 550;
+  background-color: #f7f7f2;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .answer:hover .button {
-  color: #202e42;
-  font-weight: 550;
+  color: #00728f;
+  font-weight: 300;
 }
 
 .ytvideo {
@@ -255,13 +285,13 @@ a {
 }
 
 .v-slider__tick-label {
-  color: #f4f4efff;
+  color: #f7f7f2;
   font-size: 18px;
   font-family: Roboto, sans-serif;
 }
 
 .v-slider__tick {
-  background-color: rgba(239, 110, 108, 0.555) !important;
+  background-color: rgba(#a3333d, 0.555) !important;
 }
 @media (max-width: 800px) {
   .cross {
@@ -298,6 +328,7 @@ a {
     margin-top: -25px;
   }
 
+  .question-description,
   .question,
   .button {
     font-size: 16px;
@@ -305,16 +336,14 @@ a {
   .answers {
     margin-top: 30px;
   }
-  p + p {
-    margin-top: 10px;
-  }
+
   .button02 {
-    height: 50px;
     display: flex;
     justify-content: center;
   }
 
   .ytvideo {
+    margin-left: 15%;
     width: 220px;
     height: 145px;
   }
