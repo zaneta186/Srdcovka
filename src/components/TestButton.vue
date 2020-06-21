@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <div class="question">
-      <p class="description">{{actualQuestion.description}}</p>
+      <p class="question-description">{{actualQuestion.description}}</p>
       <p>{{actualQuestion.question}}</p>
     </div>
 

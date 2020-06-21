@@ -1,13 +1,13 @@
 <template>
   <div class="test">
     <div class="question">
-      <p class="description">{{actualQuestion.description}}</p>
+      <p class="question-description">{{actualQuestion.description}}</p>
       <p>{{actualQuestion.question}}</p>
     </div>
 
     <div class="answers answers02">
       <div
-        class="answer"
+        class="answer-select"
         v-bind:key="index"
         v-for="(answer, index) in actualQuestion.answers"
         v-bind:class="{answeroznacene: answer.check}"
