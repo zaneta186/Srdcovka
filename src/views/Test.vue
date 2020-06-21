@@ -112,12 +112,12 @@ export default {
   top: 100px;
 }
 
-.description {
+.question-description {
   margin-bottom: 60px;
+  font-size: 24px;
+  font-weight:300;
+  font-family: Poppins, sans-serif;
 }
-/* p + p {
-  margin-top: 40px;
-} */
 
 .circle {
   margin: -50px 0 0 10%;
@@ -162,6 +162,19 @@ export default {
 }
 
 .answer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px 50px;
+  font-size: 18px;
+  line-height: 1.5;
+  border: 1px solid #f7f7f2;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+.answer-select {
+  display: flex;
+  align-items: center;
   position: relative;
   padding: 20px 50px;
   font-size: 18px;
@@ -194,7 +207,7 @@ a {
   text-align: center;
   align-items: center;
   justify-content: center;
-  height: 25px;
+  /* height: 25px; */
   width: 125px;
   margin: 30px;
 }
@@ -315,6 +328,7 @@ a {
     margin-top: -25px;
   }
 
+  .question-description,
   .question,
   .button {
     font-size: 16px;
@@ -322,16 +336,14 @@ a {
   .answers {
     margin-top: 30px;
   }
-  p + p {
-    margin-top: 10px;
-  }
+
   .button02 {
-    height: 50px;
     display: flex;
     justify-content: center;
   }
 
   .ytvideo {
+    margin-left: 15%;
     width: 220px;
     height: 145px;
   }
