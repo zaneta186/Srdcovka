@@ -199,6 +199,8 @@ export default {
     },
 
     async uploadLogo(file) {
+
+      if(this.logo) {
       this.uploading = true;
       const fd = new FormData();
       fd.append("files", file, file.name);
@@ -206,6 +208,7 @@ export default {
       console.log(tempId)
       this.logoId = tempId
       this.uploading = false;
+      }
     }
   }
 };

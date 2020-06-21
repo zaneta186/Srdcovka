@@ -13,6 +13,7 @@
                     text
                     rounded
                     class="my-2"
+                    :to="link.link"
                 >
                     {{ link.nazev }}
                 </v-btn>

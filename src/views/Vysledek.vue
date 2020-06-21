@@ -19,7 +19,7 @@
 
         <div class="result__segments">
 
-          <resultcard class="basis"
+          <resultcard class="result__basis"
           v-bind:key="index"
           v-for="(sgm, index) in resultSegments"
           :segment="sgm"
@@ -131,6 +131,10 @@ export default {
   display: none;  
 }
 
+.result__basis {
+  margin-bottom: 3rem;
+}
+
 
 @media screen and (min-width: 600px) {
 
@@ -155,6 +159,7 @@ export default {
 
     .result__segments {
       display: flex;
+      justify-content: space-around;
       margin-bottom: 20rem;
     }
 
@@ -178,7 +183,7 @@ export default {
       position: relative;
     }
 
-    .basis {
+    .result__basis {
       flex-basis: 45%;
     }
 
