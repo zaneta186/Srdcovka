@@ -2,34 +2,32 @@
   <div>
     <div class="circle">
       <div class="outCircle">
-        <div class="inCircle">{{Math.round((indexQuestion)/data.length*100)}} %</div>
+        <div class="inCircle">{{Math.round((indexQuestion)/questions.length*100)}} %</div>
       </div>
     </div>
   </div>
 </template>
 
+
 <script>
-import Data from "./../assets/data/data.js";
+import { Mutations, Actions } from "./../store";
 
 export default {
-  props: ["id"],
-  data() {
-    return {
-      data: Data
-    };
-  },
+  props: ["actualQuestion", "questions"],
 
   computed: {
+
     indexQuestion() {
-      const index = this.data.findIndex(
-        dataQuestion => dataQuestion.id === this.id
+      const index = this.questions.findIndex(
+        question => question.id === this.actualQuestion.id
       );
-      if (this.id == 108) {
-        return this.data.length;
+      if (index === this.questions.length-1) {
+        return this.questions.length;
       } else {
         return index;
       }
-    }
+    },
+
   }
 };
 </script>

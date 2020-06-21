@@ -40,11 +40,6 @@
 import Next from "../components/TestNext.vue";
 export default {
   props: ["actualQuestion"],
-  data() {
-    return {
-      categoriesAnswer: ""
-    };
-  },
 
   components: {
     next: Next
