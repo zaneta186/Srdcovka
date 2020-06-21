@@ -8,7 +8,9 @@ export const Actions = Object.freeze({
   FETCH_ORGANISATIONS: "fetchOrganisations",
   FETCH_SEGMENTS: "fetchSegments",
   FETCH_QUESTIONS: "fetchQuestions",
-  PERFORME_NEXT_QUESTION: "performeNextQuestion"
+  PERFORME_NEXT_QUESTION: "performeNextQuestion",
+  PERFORM_FILE_UPLOAD: "performFileUpload",
+  PERFORM_ADD_ORGANISATION: "performAddOrganisation",
 })
 
 export const Mutations = Object.freeze({
@@ -38,7 +40,7 @@ const store = new Vuex.Store({
     organisations: [],
     result: [],
     resultPrice: '',
-    segmets: [],
+    segments: [],
     questions: [],
     selectedOrganisation: undefined,
     actualQuestion: undefined,
@@ -93,7 +95,7 @@ const store = new Vuex.Store({
   actions: {
     [Actions.FETCH_ORGANISATIONS]({ commit }) {
 
-      fetch(`${URL_BASE}/organisations`)
+      fetch(`${URL_BASE}/organisations?validated=true`)
         .then(response => response.json())
         .then(organisations => {
           const sortedOrganisations = organisations.sort((a, b) => {
@@ -149,12 +151,49 @@ const store = new Vuex.Store({
         })
     },
 
-    [Actions.PERFORME_NEXT_QUESTION]({commit, state}, payload){
-      const indexActualQuestion = state.questions.findIndex(question => question.id === payload )
-      commit(Mutations.SET_ACTUAL_QUESTION_ID, state.questions[indexActualQuestion+1].id)
-      commit(Mutations.SET_ACTUAL_QUESTION, state.questions[indexActualQuestion+1].id)
+    [Actions.PERFORME_NEXT_QUESTION]({ commit, state }, payload) {
+      const indexActualQuestion = state.questions.findIndex(question => question.id === payload)
+      commit(Mutations.SET_ACTUAL_QUESTION_ID, state.questions[indexActualQuestion + 1].id)
+      commit(Mutations.SET_ACTUAL_QUESTION, state.questions[indexActualQuestion + 1].id)
 
     },
+
+    async [Actions.PERFORM_FILE_UPLOAD](context, payload) {
+      console.log("FILE:", payload)
+      const response = await fetch(`${URL_BASE}/upload`, {
+        method: 'POST',
+        body: payload
+      })
+
+      const img = await response.json()
+
+      if (img.length && img[0].id) {
+        return img[0].id
+      }
+    },
+
+    [Actions.PERFORM_ADD_ORGANISATION](context, payload) {
+
+      console.log("Payload:", payload)
+      const segmentId = context.state.segments.find(segment => segment.name === payload.segment)
+      console.log("Hledám ID segmentu:", segmentId)
+
+      const data = {
+        ...payload,
+        segment: segmentId.id
+      }
+
+      console.log("Snažím se o změnu segmentu na ID:", data);
+      fetch(`${URL_BASE}/organisations`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(organisation => console.log(organisation));
+    }
   }
 });
 

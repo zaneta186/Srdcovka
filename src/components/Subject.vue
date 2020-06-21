@@ -61,7 +61,7 @@ export default {
     height: 205rem;
     position: absolute;
     background-color: #ef6f6c;
-    top: -115%;
+    top: -90%;
 }
 
 }
