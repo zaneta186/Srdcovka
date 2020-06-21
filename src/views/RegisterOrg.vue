@@ -3,9 +3,7 @@
     <div class="registration__org">
       <h1 class="registration__org__title">Aby Vás srdcaři našli</h1>
       <p class="registration__org__subtitle">
-        Po zaregistrování do naší databáze bude Vaše organizace zařazena do výsledků individuálních testů. Zvýšíte tak pravděpodobnost, že se některý ze srdcařů rozhodne pravidelně přispívat právě na Vaši věc.
-        <br />
-        <br />Vyplněním formuláře se pod svým uživatelským jménem a heslem zaregistrujete do našeho systému, informace o Vaší organizaci tak budete moci kdykoliv aktualizovat.
+        Po vyplnění formuláře a autorizaci údajů bude Vaše organizace zařazena do seznamu organizací v naší databázi. Zároveň se bude zobrazovat ve výsledku uživatelského testu, v případě že bude korespondovat s výslednou oblastí pomoci. Zvýšíte tak pravděpodobnost, že se některý ze srdcařů rozhodne pravidelně přispívat právě na Vaši věc.
       </p>
 
       <v-form ref="form" v-model="valid">

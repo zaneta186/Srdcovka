@@ -52,7 +52,7 @@
 
                 <h2 class="about__title">Náš cíl? <span class="heading__span">Odstranit bariéry!</span></h2>
 
-                <p class="about__text">Mezi potenciálním dárcem a skutečnou finanční pomocí stojí celá řada překážek. Neví, jaké organizace na trhu působí nebo které z nich jsou důvěryhodné a transparentní. V neposlední řadě pravděpodobně vůbec nemá vnitřně rozhodnuto, které oblasti patří jeho srdce. Nadšení ho pak může lehce opustit. Naše aplikace nejen promění všechny tyto problémy v zábavu, ale zároveň mu poskytne cenné informace o konkrétní pomoci přímo z první ruky – od organizací, které si sami udržují profily v naší databázy.</p>
+                <p class="about__text">Mezi potenciálním dárcem a skutečnou finanční pomocí stojí celá řada překážek. Neví, jaké organizace na trhu působí nebo které z nich jsou důvěryhodné a transparentní. V neposlední řadě pravděpodobně vůbec nemá vnitřně rozhodnuto, které oblasti patří jeho srdce. Nadšení ho pak může lehce opustit. Naše aplikace nejen promění všechny tyto problémy v zábavu, ale zároveň mu poskytne cenné informace o konkrétní pomoci přímo z první ruky – od organizací, které si sami udržují profily v naší databázi.</p>
 
             </div>
 
